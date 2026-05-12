@@ -1,7 +1,8 @@
 {
-  "project_endpoint": "<set by scripts/deploy.py>",
-  "agent_id": "<set by scripts/deploy.py>",
+  "project_endpoint": "https://luechen-swedencentral-foundry.services.ai.azure.com/api/projects/luechen-sc-fdp-1",
+  "agent_id": "vendor-performance-analyst",
   "agent_name": "vendor-performance-analyst",
+  "agent_version": "1",
   "default_dataset": "vendor_performance_queries_v1",
   "default_evaluators": [
     "actionability",
