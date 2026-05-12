@@ -34,7 +34,7 @@ vendor-performance-analyst/
 ├── VALIDATION.md                   expected V1/V2 outputs + score targets
 ├── eval_compare_sample.md          fallback comparison view (if live eval breaks)
 ├── foundry.json                    Foundry project context (skill reads this)
-├── azure.yaml                      azd deployment config
+├── agent.manifest.yaml             manifest-driven hosted-agent config (azd ai agent init)
 ├── faos_spec.yaml                  the "Advanced: FAOS" handoff spec
 ├── pyproject.toml                  Python deps
 ├── .env.example                    required env vars (the FAOS knobs)
@@ -68,7 +68,6 @@ vendor-performance-analyst/
 │   └── vendor_queries.jsonl        20 rows across evidence-quality buckets
 │
 └── scripts/
-    ├── deploy.py                   deploy to Foundry as hosted agent
     ├── seed_traces.py              populate traces before demo
     ├── local_run.py                single-query invoke for dev
     ├── eval_harness.py             VALIDATE V1 vs V2 deltas before stage time
@@ -91,14 +90,15 @@ uv pip install -e .
 
 # Configure
 cp .env.example .env
-# fill in AZURE_AI_PROJECT_ENDPOINT, MODEL_DEPLOYMENT_NAME
+# fill in FOUNDRY_PROJECT_ENDPOINT, AZURE_AI_MODEL_DEPLOYMENT_NAME
 
 # Validate the optimization gap BEFORE going on stage (~15 min, ~$3)
 # This runs V1 and V2 locally and prints the score deltas you'll see live.
 python scripts/eval_harness.py
 
-# Deploy to Foundry as a hosted agent (creates the agent and registers tools)
-python scripts/deploy.py
+# Deploy to Foundry as a hosted agent
+azd ai agent init -m agent.manifest.yaml
+azd up
 
 # Seed traces so traces→dataset has data to work with during the demo
 python scripts/seed_traces.py --count 30
