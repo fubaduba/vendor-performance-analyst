@@ -1,0 +1,17 @@
+.git
+.github
+.venv
+.env
+.env.example
+__pycache__
+*.pyc
+*.pyo
+.pytest_cache
+.ruff_cache
+scripts/eval_*
+scripts/eval_responses.jsonl
+DEMO_SCRIPT.md
+VALIDATION.md
+eval_compare_sample.md
+README.md
+.foundry/results
