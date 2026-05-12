@@ -7,7 +7,7 @@
     "breach_rate_90d": 0.0,
     "avg_ack_minutes_90d": 11.7,
     "avg_completion_hours_90d": 5.5,
-    "tier_expectation": "Tier 1 SLA — strict"
+    "tier_expectation": "Tier 1 SLA \u2014 strict"
   },
   {
     "vendor_id": "vendor-002",
@@ -17,7 +17,7 @@
     "breach_rate_90d": 0.25,
     "avg_ack_minutes_90d": 28.75,
     "avg_completion_hours_90d": 9.5,
-    "tier_expectation": "Tier 2 SLA — relaxed"
+    "tier_expectation": "Tier 2 SLA \u2014 relaxed"
   },
   {
     "vendor_id": "vendor-003",
@@ -27,7 +27,7 @@
     "breach_rate_90d": 0.0,
     "avg_ack_minutes_90d": 21.3,
     "avg_completion_hours_90d": 7.9,
-    "tier_expectation": "Tier 2 SLA — relaxed"
+    "tier_expectation": "Tier 2 SLA \u2014 relaxed"
   },
   {
     "vendor_id": "vendor-004",
@@ -37,7 +37,7 @@
     "breach_rate_90d": 0.92,
     "avg_ack_minutes_90d": 91.0,
     "avg_completion_hours_90d": 35.6,
-    "tier_expectation": "Tier 3 SLA — basic"
+    "tier_expectation": "Tier 3 SLA \u2014 basic"
   },
   {
     "vendor_id": "vendor-006",
@@ -47,6 +47,46 @@
     "breach_rate_90d": 0.0,
     "avg_ack_minutes_90d": 14.5,
     "avg_completion_hours_90d": 6.0,
-    "tier_expectation": "Tier 2 SLA — relaxed"
+    "tier_expectation": "Tier 2 SLA \u2014 relaxed"
+  },
+  {
+    "vendor_id": "vendor-007",
+    "ack_minutes_target": 30,
+    "completion_hours_target": 8,
+    "breach_count_90d": 0,
+    "breach_rate_90d": 0.0,
+    "avg_ack_minutes_90d": 10.3,
+    "avg_completion_hours_90d": 5.9,
+    "tier_expectation": "Tier 1 SLA \u2014 strict"
+  },
+  {
+    "vendor_id": "vendor-008",
+    "ack_minutes_target": 30,
+    "completion_hours_target": 8,
+    "breach_count_90d": 0,
+    "breach_rate_90d": 0.0,
+    "avg_ack_minutes_90d": 16.6,
+    "avg_completion_hours_90d": 6.3,
+    "tier_expectation": "Tier 2 SLA \u2014 relaxed"
+  },
+  {
+    "vendor_id": "vendor-009",
+    "ack_minutes_target": 45,
+    "completion_hours_target": 12,
+    "breach_count_90d": 1,
+    "breach_rate_90d": 0.5,
+    "avg_ack_minutes_90d": 38.0,
+    "avg_completion_hours_90d": 11.5,
+    "tier_expectation": "Tier 3 SLA \u2014 basic"
+  },
+  {
+    "vendor_id": "vendor-010",
+    "ack_minutes_target": 30,
+    "completion_hours_target": 8,
+    "breach_count_90d": 0,
+    "breach_rate_90d": 0.0,
+    "avg_ack_minutes_90d": 25.5,
+    "avg_completion_hours_90d": 7.0,
+    "tier_expectation": "Tier 3 SLA \u2014 basic"
   }
 ]

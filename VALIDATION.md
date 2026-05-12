@@ -4,16 +4,27 @@ What this document is: the design rationale for the dataset, the expected V1 and
 
 ## Dataset design
 
-20 queries spread across four evidence-quality buckets:
+80 queries spread across evidence-quality and failure-mode buckets:
 
-| Bucket | Count | What it tests |
-|---|---|---|
-| `high` | 9 | Both V1 and V2 should answer confidently. Tests that V2's added caution doesn't make it hedge when the data is complete. |
-| `partial` | 6 | V1 should be overconfident; V2 should flag the specific evidence gap. The primary failure cluster. |
-| `sparse` | 3 | V1 invents conclusions from small samples; V2 recommends more data. |
-| `conflicting` | 2 | V1 picks one signal and runs with it; V2 surfaces the conflict. |
+| Evidence quality | Count |
+|---|---|
+| `high` | 38 |
+| `partial` | 19 |
+| `sparse` | 12 |
+| `conflicting` | 11 |
 
-The `partial`, `sparse`, and `conflicting` buckets together are 11 of the 20 rows — slightly over half the dataset rewards calibrated reasoning. The `high` rows are deliberately weighted to ensure V2 doesn't get rewarded for over-hedging.
+| Expected failure mode | Count |
+|---|---|
+| `none_calibrated` | 13 |
+| `overconfidence_on_partial` | 15 |
+| `overconfidence_on_sparse` | 6 |
+| `missing_conflict_surface` | 8 |
+| `tool_output_refusal` | 23 |
+| `site_refusal` | 9 |
+| `over_pattern_attribution` | 2 |
+| `under_pattern_attribution` | 4 |
+
+These two axes overlap by design (for example a `partial` row can still test `site_refusal`). The larger dataset intentionally adds more tool-citation and production-failure repro rows to catch v4-style refusal-to-cite regressions.
 
 ## Headline query walkthroughs
 
@@ -207,7 +218,7 @@ If the `high` bucket scores collapse for V2, that means V2 is hedging on cases t
 # Smoke test first (5 rows, ~2 minutes, ~$0.50)
 python scripts/eval_harness.py --limit 5
 
-# Full validation (20 rows × 2 prompts × 3 evaluators, ~15 minutes, ~$3)
+# Full validation (80 rows × 2 prompts × 3 evaluators, ~45 minutes, ~$8)
 python scripts/eval_harness.py --save validation_results.json
 ```
 

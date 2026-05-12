@@ -1,25 +1,234 @@
 [
-  {"vendor_id": "vendor-001", "days_ago": 3, "channel": "Teams", "topic": "Quincy site spec confirmation", "sentiment": "neutral", "summary": "Routine confirmation thread. No concerns raised."},
-  {"vendor_id": "vendor-001", "days_ago": 11, "channel": "Email", "topic": "Q1 capacity planning", "sentiment": "positive", "summary": "Vendor proposed proactive scheduling for known maintenance windows."},
-  {"vendor_id": "vendor-001", "days_ago": 24, "channel": "Teams", "topic": "Boydton fiber map update", "sentiment": "neutral", "summary": "Standard documentation sync."},
-  {"vendor_id": "vendor-001", "days_ago": 38, "channel": "Email", "topic": "Quarterly business review", "sentiment": "positive", "summary": "QBR notes; vendor exceeded all SLA targets."},
-
-  {"vendor_id": "vendor-002", "days_ago": 35, "channel": "Email", "topic": "Cheyenne deployment plan", "sentiment": "neutral", "summary": "Initial deployment alignment. No follow-up captured."},
-  {"vendor_id": "vendor-002", "days_ago": 52, "channel": "Teams", "topic": "San Antonio commissioning", "sentiment": "neutral", "summary": "Pre-cutover sync."},
-
-  {"vendor_id": "vendor-003", "days_ago": 4, "channel": "Email", "topic": "Re-termination quality complaint", "sentiment": "negative", "summary": "Site supervisor flagged repeated rework on the same termination points. Asked for crew training plan."},
-  {"vendor_id": "vendor-003", "days_ago": 12, "channel": "Teams", "topic": "Patch panel discrepancy", "sentiment": "negative", "summary": "Field tech reported labeling errors. PacificCom acknowledged."},
-  {"vendor_id": "vendor-003", "days_ago": 27, "channel": "Email", "topic": "Quality concerns escalation", "sentiment": "negative", "summary": "Vendor manager escalated three rework incidents this month. Vendor response was apologetic but no remediation plan committed."},
-  {"vendor_id": "vendor-003", "days_ago": 33, "channel": "Teams", "topic": "Quincy work order coordination", "sentiment": "neutral", "summary": "Routine coordination."},
-  {"vendor_id": "vendor-003", "days_ago": 48, "channel": "Email", "topic": "Repeat rework discussion", "sentiment": "negative", "summary": "Second escalation thread. Vendor agreed to crew certification audit. Audit not yet delivered."},
-
-  {"vendor_id": "vendor-004", "days_ago": 2, "channel": "Email", "topic": "Late delivery escalation", "sentiment": "negative", "summary": "Operations VP escalation; multiple late hardware shipments threatening capacity ramp."},
-  {"vendor_id": "vendor-004", "days_ago": 9, "channel": "Teams", "topic": "Atlanta delay root cause", "sentiment": "negative", "summary": "Vendor cited carrier issues; root cause not validated."},
-  {"vendor_id": "vendor-004", "days_ago": 16, "channel": "Email", "topic": "Performance improvement plan", "sentiment": "negative", "summary": "PIP formally issued."},
-  {"vendor_id": "vendor-004", "days_ago": 23, "channel": "Teams", "topic": "PIP weekly check-in", "sentiment": "neutral", "summary": "Vendor reported partial progress on PIP milestones."},
-  {"vendor_id": "vendor-004", "days_ago": 30, "channel": "Email", "topic": "Contract review trigger", "sentiment": "negative", "summary": "Procurement asked vendor manager to prepare a contract review packet."},
-
-  {"vendor_id": "vendor-005", "days_ago": 14, "channel": "Email", "topic": "Initial dispatch coordination", "sentiment": "neutral", "summary": "First dispatch coordination email. Limited prior history."},
-
-  {"vendor_id": "vendor-006", "days_ago": 47, "channel": "Email", "topic": "Phoenix install handoff", "sentiment": "positive", "summary": "Clean handoff. No follow-up in the last 6 weeks despite multiple completed dispatches."}
+  {
+    "vendor_id": "vendor-001",
+    "days_ago": 3,
+    "channel": "Teams",
+    "topic": "Quincy site spec confirmation",
+    "sentiment": "neutral",
+    "summary": "Routine confirmation thread. No concerns raised."
+  },
+  {
+    "vendor_id": "vendor-001",
+    "days_ago": 11,
+    "channel": "Email",
+    "topic": "Q1 capacity planning",
+    "sentiment": "positive",
+    "summary": "Vendor proposed proactive scheduling for known maintenance windows."
+  },
+  {
+    "vendor_id": "vendor-001",
+    "days_ago": 24,
+    "channel": "Teams",
+    "topic": "Boydton fiber map update",
+    "sentiment": "neutral",
+    "summary": "Standard documentation sync."
+  },
+  {
+    "vendor_id": "vendor-001",
+    "days_ago": 38,
+    "channel": "Email",
+    "topic": "Quarterly business review",
+    "sentiment": "positive",
+    "summary": "QBR notes; vendor exceeded all SLA targets."
+  },
+  {
+    "vendor_id": "vendor-002",
+    "days_ago": 35,
+    "channel": "Email",
+    "topic": "Cheyenne deployment plan",
+    "sentiment": "neutral",
+    "summary": "Initial deployment alignment. No follow-up captured."
+  },
+  {
+    "vendor_id": "vendor-002",
+    "days_ago": 52,
+    "channel": "Teams",
+    "topic": "San Antonio commissioning",
+    "sentiment": "neutral",
+    "summary": "Pre-cutover sync."
+  },
+  {
+    "vendor_id": "vendor-003",
+    "days_ago": 4,
+    "channel": "Email",
+    "topic": "Re-termination quality complaint",
+    "sentiment": "negative",
+    "summary": "Site supervisor flagged repeated rework on the same termination points. Asked for crew training plan."
+  },
+  {
+    "vendor_id": "vendor-003",
+    "days_ago": 12,
+    "channel": "Teams",
+    "topic": "Patch panel discrepancy",
+    "sentiment": "negative",
+    "summary": "Field tech reported labeling errors. PacificCom acknowledged."
+  },
+  {
+    "vendor_id": "vendor-003",
+    "days_ago": 27,
+    "channel": "Email",
+    "topic": "Quality concerns escalation",
+    "sentiment": "negative",
+    "summary": "Vendor manager escalated three rework incidents this month. Vendor response was apologetic but no remediation plan committed."
+  },
+  {
+    "vendor_id": "vendor-003",
+    "days_ago": 33,
+    "channel": "Teams",
+    "topic": "Quincy work order coordination",
+    "sentiment": "neutral",
+    "summary": "Routine coordination."
+  },
+  {
+    "vendor_id": "vendor-003",
+    "days_ago": 48,
+    "channel": "Email",
+    "topic": "Repeat rework discussion",
+    "sentiment": "negative",
+    "summary": "Second escalation thread. Vendor agreed to crew certification audit. Audit not yet delivered."
+  },
+  {
+    "vendor_id": "vendor-004",
+    "days_ago": 2,
+    "channel": "Email",
+    "topic": "Late delivery escalation",
+    "sentiment": "negative",
+    "summary": "Operations VP escalation; multiple late hardware shipments threatening capacity ramp."
+  },
+  {
+    "vendor_id": "vendor-004",
+    "days_ago": 9,
+    "channel": "Teams",
+    "topic": "Atlanta delay root cause",
+    "sentiment": "negative",
+    "summary": "Vendor cited carrier issues; root cause not validated."
+  },
+  {
+    "vendor_id": "vendor-004",
+    "days_ago": 16,
+    "channel": "Email",
+    "topic": "Performance improvement plan",
+    "sentiment": "negative",
+    "summary": "PIP formally issued."
+  },
+  {
+    "vendor_id": "vendor-004",
+    "days_ago": 23,
+    "channel": "Teams",
+    "topic": "PIP weekly check-in",
+    "sentiment": "neutral",
+    "summary": "Vendor reported partial progress on PIP milestones."
+  },
+  {
+    "vendor_id": "vendor-004",
+    "days_ago": 30,
+    "channel": "Email",
+    "topic": "Contract review trigger",
+    "sentiment": "negative",
+    "summary": "Procurement asked vendor manager to prepare a contract review packet."
+  },
+  {
+    "vendor_id": "vendor-005",
+    "days_ago": 14,
+    "channel": "Email",
+    "topic": "Initial dispatch coordination",
+    "sentiment": "neutral",
+    "summary": "First dispatch coordination email. Limited prior history."
+  },
+  {
+    "vendor_id": "vendor-006",
+    "days_ago": 47,
+    "channel": "Email",
+    "topic": "Phoenix install handoff",
+    "sentiment": "positive",
+    "summary": "Clean handoff. No follow-up in the last 6 weeks despite multiple completed dispatches."
+  },
+  {
+    "vendor_id": "vendor-007",
+    "days_ago": 5,
+    "channel": "Teams",
+    "topic": "Atlanta PM cadence",
+    "sentiment": "positive",
+    "summary": "Routine weekly sync completed with no blockers."
+  },
+  {
+    "vendor_id": "vendor-007",
+    "days_ago": 14,
+    "channel": "Email",
+    "topic": "Boydton generator maintenance plan",
+    "sentiment": "neutral",
+    "summary": "Vendor shared preventive maintenance sequence and staffing roster."
+  },
+  {
+    "vendor_id": "vendor-007",
+    "days_ago": 29,
+    "channel": "Teams",
+    "topic": "Cooling optimization follow-up",
+    "sentiment": "positive",
+    "summary": "Site lead thanked RidgeLine for proactive valve replacement before peak load."
+  },
+  {
+    "vendor_id": "vendor-007",
+    "days_ago": 52,
+    "channel": "Email",
+    "topic": "Quarterly operating review",
+    "sentiment": "positive",
+    "summary": "Review noted consistent SLA adherence and clear field documentation."
+  },
+  {
+    "vendor_id": "vendor-008",
+    "days_ago": 4,
+    "channel": "Email",
+    "topic": "Repeat callouts at San Antonio",
+    "sentiment": "negative",
+    "summary": "Operations manager flagged third repeat callout on same fiber corridor despite on-time closes."
+  },
+  {
+    "vendor_id": "vendor-008",
+    "days_ago": 17,
+    "channel": "Teams",
+    "topic": "Incomplete remediation concern",
+    "sentiment": "negative",
+    "summary": "Field supervisor reported ticket closures before root-cause remediation was complete."
+  },
+  {
+    "vendor_id": "vendor-008",
+    "days_ago": 33,
+    "channel": "Email",
+    "topic": "Cheyenne repeat callouts",
+    "sentiment": "negative",
+    "summary": "Escalation thread cites recurring return visits within days of prior completion."
+  },
+  {
+    "vendor_id": "vendor-008",
+    "days_ago": 48,
+    "channel": "Teams",
+    "topic": "Monthly operations sync",
+    "sentiment": "neutral",
+    "summary": "Standard review call with no new commitments documented."
+  },
+  {
+    "vendor_id": "vendor-009",
+    "days_ago": 20,
+    "channel": "Email",
+    "topic": "Initial monitoring onboarding",
+    "sentiment": "neutral",
+    "summary": "Kickoff thread confirmed alerting contacts and runbook ownership."
+  },
+  {
+    "vendor_id": "vendor-010",
+    "days_ago": 7,
+    "channel": "Email",
+    "topic": "Customer escalation on repeat HVAC alarms",
+    "sentiment": "negative",
+    "summary": "Facility manager escalated repeated comfort alarms within one week of prior closure."
+  },
+  {
+    "vendor_id": "vendor-010",
+    "days_ago": 26,
+    "channel": "Teams",
+    "topic": "Atlanta recurrence escalation",
+    "sentiment": "negative",
+    "summary": "Site operations requested executive review after second recurrence on the same unit."
+  }
 ]
