@@ -1,0 +1,64 @@
+name: Eval on PR
+
+on:
+  pull_request:
+    paths:
+      - "agent/**"
+      - "datasets/**"
+      - "evaluators/**"
+  workflow_dispatch:
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Azure login (federated)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Install
+        run: |
+          pip install -e .
+
+      - name: Deploy candidate agent
+        env:
+          AZURE_AI_PROJECT_ENDPOINT: ${{ secrets.AZURE_AI_PROJECT_ENDPOINT }}
+          MODEL_DEPLOYMENT_NAME: ${{ vars.MODEL_DEPLOYMENT_NAME }}
+          AGENT_VERSION: pr-${{ github.event.pull_request.number }}
+        run: python scripts/deploy.py
+
+      - name: Run eval suite
+        env:
+          AZURE_AI_PROJECT_ENDPOINT: ${{ secrets.AZURE_AI_PROJECT_ENDPOINT }}
+        run: |
+          # Invoke the same eval that the skill runs during the demo.
+          # Fails the workflow if any evaluator drops below its 'pass' threshold.
+          python -m scripts.run_eval --fail-on-regression
+
+      - name: Comment on PR with eval summary
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const summary = fs.readFileSync('eval_summary.md', 'utf8');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: summary
+            });

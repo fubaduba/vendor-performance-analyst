@@ -1,0 +1,35 @@
+[
+  {"dispatch_id": "DSP-1001", "vendor_id": "vendor-001", "site": "Quincy WA", "days_ago": 2, "incident_type": "Fiber cut", "ack_minutes": 12, "completion_hours": 6, "sla_met": true},
+  {"dispatch_id": "DSP-1002", "vendor_id": "vendor-001", "site": "Boydton VA", "days_ago": 8, "incident_type": "Cable degradation", "ack_minutes": 8, "completion_hours": 4, "sla_met": true},
+  {"dispatch_id": "DSP-1003", "vendor_id": "vendor-001", "site": "Quincy WA", "days_ago": 15, "incident_type": "Splice repair", "ack_minutes": 15, "completion_hours": 5, "sla_met": true},
+  {"dispatch_id": "DSP-1004", "vendor_id": "vendor-001", "site": "Quincy WA", "days_ago": 22, "incident_type": "Fiber cut", "ack_minutes": 10, "completion_hours": 7, "sla_met": true},
+  {"dispatch_id": "DSP-1005", "vendor_id": "vendor-001", "site": "Boydton VA", "days_ago": 35, "incident_type": "Cable degradation", "ack_minutes": 14, "completion_hours": 5, "sla_met": true},
+  {"dispatch_id": "DSP-1006", "vendor_id": "vendor-001", "site": "Quincy WA", "days_ago": 48, "incident_type": "Fiber cut", "ack_minutes": 11, "completion_hours": 6, "sla_met": true},
+
+  {"dispatch_id": "DSP-2001", "vendor_id": "vendor-002", "site": "Cheyenne WY", "days_ago": 5, "incident_type": "Router fault", "ack_minutes": 32, "completion_hours": 9, "sla_met": true},
+  {"dispatch_id": "DSP-2002", "vendor_id": "vendor-002", "site": "San Antonio TX", "days_ago": 12, "incident_type": "Switch replacement", "ack_minutes": 28, "completion_hours": 11, "sla_met": false},
+  {"dispatch_id": "DSP-2003", "vendor_id": "vendor-002", "site": "Cheyenne WY", "days_ago": 19, "incident_type": "Network reconfig", "ack_minutes": 25, "completion_hours": 8, "sla_met": true},
+  {"dispatch_id": "DSP-2004", "vendor_id": "vendor-002", "site": "Cheyenne WY", "days_ago": 26, "incident_type": "Router fault", "ack_minutes": 30, "completion_hours": 10, "sla_met": true},
+
+  {"dispatch_id": "DSP-3001", "vendor_id": "vendor-003", "site": "Quincy WA", "days_ago": 4, "incident_type": "Cable pull", "ack_minutes": 18, "completion_hours": 8, "sla_met": true},
+  {"dispatch_id": "DSP-3002", "vendor_id": "vendor-003", "site": "Phoenix AZ", "days_ago": 11, "incident_type": "Patch panel", "ack_minutes": 22, "completion_hours": 6, "sla_met": true},
+  {"dispatch_id": "DSP-3003", "vendor_id": "vendor-003", "site": "Quincy WA", "days_ago": 18, "incident_type": "Cable pull", "ack_minutes": 20, "completion_hours": 9, "sla_met": true},
+  {"dispatch_id": "DSP-3004", "vendor_id": "vendor-003", "site": "Quincy WA", "days_ago": 25, "incident_type": "Re-termination (rework)", "ack_minutes": 24, "completion_hours": 7, "sla_met": true},
+  {"dispatch_id": "DSP-3005", "vendor_id": "vendor-003", "site": "Phoenix AZ", "days_ago": 32, "incident_type": "Patch panel", "ack_minutes": 19, "completion_hours": 8, "sla_met": true},
+  {"dispatch_id": "DSP-3006", "vendor_id": "vendor-003", "site": "Quincy WA", "days_ago": 40, "incident_type": "Re-termination (rework)", "ack_minutes": 25, "completion_hours": 9, "sla_met": true},
+  {"dispatch_id": "DSP-3007", "vendor_id": "vendor-003", "site": "Quincy WA", "days_ago": 51, "incident_type": "Cable pull", "ack_minutes": 21, "completion_hours": 8, "sla_met": true},
+
+  {"dispatch_id": "DSP-4001", "vendor_id": "vendor-004", "site": "Boydton VA", "days_ago": 3, "incident_type": "Hardware delivery", "ack_minutes": 95, "completion_hours": 36, "sla_met": false},
+  {"dispatch_id": "DSP-4002", "vendor_id": "vendor-004", "site": "Atlanta GA", "days_ago": 9, "incident_type": "Hardware delivery", "ack_minutes": 110, "completion_hours": 48, "sla_met": false},
+  {"dispatch_id": "DSP-4003", "vendor_id": "vendor-004", "site": "Boydton VA", "days_ago": 17, "incident_type": "Emergency parts", "ack_minutes": 85, "completion_hours": 24, "sla_met": false},
+  {"dispatch_id": "DSP-4004", "vendor_id": "vendor-004", "site": "Atlanta GA", "days_ago": 24, "incident_type": "Hardware delivery", "ack_minutes": 75, "completion_hours": 30, "sla_met": false},
+  {"dispatch_id": "DSP-4005", "vendor_id": "vendor-004", "site": "Boydton VA", "days_ago": 31, "incident_type": "Hardware delivery", "ack_minutes": 90, "completion_hours": 40, "sla_met": false},
+
+  {"dispatch_id": "DSP-5001", "vendor_id": "vendor-005", "site": "Cheyenne WY", "days_ago": 14, "incident_type": "Fiber pull", "ack_minutes": 45, "completion_hours": 12, "sla_met": true},
+  {"dispatch_id": "DSP-5002", "vendor_id": "vendor-005", "site": "Cheyenne WY", "days_ago": 42, "incident_type": "Fiber pull", "ack_minutes": 50, "completion_hours": 14, "sla_met": true},
+
+  {"dispatch_id": "DSP-6001", "vendor_id": "vendor-006", "site": "San Antonio TX", "days_ago": 6, "incident_type": "Fiber install", "ack_minutes": 15, "completion_hours": 6, "sla_met": true},
+  {"dispatch_id": "DSP-6002", "vendor_id": "vendor-006", "site": "Phoenix AZ", "days_ago": 13, "incident_type": "Fiber install", "ack_minutes": 12, "completion_hours": 5, "sla_met": true},
+  {"dispatch_id": "DSP-6003", "vendor_id": "vendor-006", "site": "San Antonio TX", "days_ago": 21, "incident_type": "Splice repair", "ack_minutes": 17, "completion_hours": 7, "sla_met": true},
+  {"dispatch_id": "DSP-6004", "vendor_id": "vendor-006", "site": "Phoenix AZ", "days_ago": 28, "incident_type": "Fiber install", "ack_minutes": 14, "completion_hours": 6, "sla_met": true}
+]

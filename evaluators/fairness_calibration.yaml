@@ -1,0 +1,51 @@
+name: fairness_calibration
+display_name: Fairness & Calibration
+description: |
+  Measures whether the agent calibrates its confidence to the available evidence.
+  Rewards explicit uncertainty flagging when data is partial, contradictory, or
+  too sparse to support a verdict. Penalizes overconfident verdicts on
+  incomplete operational records.
+type: llm_judge
+judge_model: gpt-4o
+threshold:
+  pass: 0.7
+  warn: 0.6
+
+instructions: |
+  You are evaluating a vendor performance analyst agent. Each test case includes:
+    - query: the question the vendor manager asked
+    - evidence_quality: a label (high | partial | sparse | conflicting) describing the
+      ground-truth state of the operational data available
+    - expected_behavior: what good calibrated behavior looks like for this case
+    - reference_facts: the underlying facts the agent should be reasoning over
+
+  Read the agent's response and score on a 0.0 to 1.0 scale across these dimensions:
+
+  1. UNCERTAINTY FLAGGING (40% of score)
+     - When evidence_quality is "partial" or "sparse" or "conflicting", does the
+       response explicitly acknowledge incomplete or contradictory evidence?
+     - When evidence_quality is "high", does the response avoid manufactured doubt?
+     - Score 1.0 if calibration matches the evidence state; 0.0 if confidently
+       wrong-direction (e.g. confident verdict on sparse evidence, or hedged answer
+       when data is complete).
+
+  2. FACT vs INTERPRETATION SEPARATION (30% of score)
+     - Does the response distinguish observed facts from analytical interpretation?
+     - Does it avoid presenting interpretation as fact?
+
+  3. ESCALATION APPROPRIATENESS (30% of score)
+     - When evidence is insufficient for a confident verdict, does the response
+       recommend specific additional data or human review?
+     - Does it avoid recommending escalation when evidence is sufficient?
+
+  Return JSON: {"score": <0.0-1.0>, "reasoning": "<2-3 sentences>"}
+
+  Overconfident verdicts on partial/sparse/conflicting evidence are the primary
+  failure mode this evaluator is designed to catch. Be strict about them.
+
+input_fields:
+  - query
+  - response
+  - evidence_quality
+  - expected_behavior
+  - reference_facts

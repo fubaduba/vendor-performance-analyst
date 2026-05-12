@@ -1,0 +1,43 @@
+name: actionability
+display_name: Actionability
+description: |
+  Measures whether the agent's recommendations are concrete and useful for a
+  vendor manager who needs to decide what to do next.
+type: llm_judge
+judge_model: gpt-4o
+threshold:
+  pass: 0.7
+  warn: 0.6
+
+instructions: |
+  You are evaluating a vendor performance analyst agent for actionability.
+
+  Each test case includes:
+    - query: the vendor manager's question
+    - response: the agent's answer
+    - expected_behavior: what a useful answer looks like
+
+  Score on a 0.0 to 1.0 scale:
+
+  1. CONCRETENESS (50% of score)
+     - Does the response give the vendor manager something specific they can do
+       (escalate, monitor, request data, schedule a review, draft a PIP)?
+     - Vague advice like "consider monitoring" should be penalized; specific
+       actions like "request the crew certification audit referenced in the
+       Mar 14 thread" should be rewarded.
+
+  2. CONTEXT FIT (50% of score)
+     - Does the recommendation fit the question? (A renewal question should get
+       a renewal-relevant recommendation; a quality concern should get a
+       quality-relevant recommendation.)
+
+  Recommendations to pull more data are valid actions when evidence is
+  insufficient. Do not penalize "recommend pulling Teams history" as
+  hedging — it is a concrete action.
+
+  Return JSON: {"score": <0.0-1.0>, "reasoning": "<2-3 sentences>"}
+
+input_fields:
+  - query
+  - response
+  - expected_behavior

@@ -1,0 +1,11 @@
+{
+  "project_endpoint": "<set by scripts/deploy.py>",
+  "agent_id": "<set by scripts/deploy.py>",
+  "agent_name": "vendor-performance-analyst",
+  "default_dataset": "vendor_performance_queries_v1",
+  "default_evaluators": [
+    "actionability",
+    "fairness_calibration",
+    "groundedness"
+  ]
+}

@@ -1,0 +1,62 @@
+# FAOS optimization spec — referenced from DEMO_SCRIPT Beat 7 ("Advanced: optimize with FAOS")
+#
+# When the skill surfaces "Advanced: optimize with FAOS" after the single-shot
+# pass, this is the spec it would hand off. Same dataset, same evaluators —
+# the difference is multi-candidate generation and a Pareto comparison.
+#
+# Usage at the CLI:
+#   foundry-agent optimize --spec faos_spec.yaml
+#
+# Or from the skill: "optimize this agent with FAOS using the existing eval suite"
+
+agent:
+  name: vendor-performance-analyst
+  # FAOS knobs — env vars FAOS is allowed to mutate during candidate generation.
+  knobs:
+    - name: SYSTEM_PROMPT_TEXT
+      type: prompt
+      source_file: agent/prompts/system_prompt_v1.md
+      description: |
+        Agent system prompt. The primary optimization target. FAOS will generate
+        candidate prompts targeting the evaluators below.
+
+evaluation:
+  # Reuse the same eval suite the skill ran during the demo. FAOS will call
+  # the batch eval API for each candidate.
+  dataset: vendor_performance_queries_v1
+  level: turn
+
+  evaluators:
+    - name: fairness_calibration
+      weight: 1.0
+      target: 0.85
+    - name: groundedness
+      weight: 0.8
+      target: 0.90
+    - name: actionability
+      weight: 0.4
+      target: 0.85
+
+  # Hard floors. FAOS will reject any candidate that drops a metric below these.
+  guardrails:
+    - evaluator: actionability
+      floor: 0.70
+      reason: "Don't sacrifice actionability for calibration."
+
+optimization:
+  algorithm: multi_turn_prompt_optimizer
+  candidates: 8
+  iterations: 3
+  parallelism: 2
+
+  # Focus the optimizer's attention on the failure cluster identified in
+  # Beat 3 of the demo. Optional but improves convergence.
+  failure_focus:
+    cluster: "overconfident_on_partial_evidence"
+    target_rows:
+      evidence_quality: ["partial", "sparse", "conflicting"]
+
+  # Cost ceiling for the run.
+  budget:
+    max_judge_calls: 800
+    max_runtime_minutes: 30

@@ -1,0 +1,62 @@
+[
+  {
+    "vendor_id": "vendor-001",
+    "name": "FiberWorks Inc",
+    "category": "Fiber installation & repair",
+    "tier": "Strategic",
+    "contract_start": "2023-04-15",
+    "contract_renewal": "2026-04-15",
+    "primary_regions": ["Quincy WA", "Boydton VA"],
+    "performance_tier": "Tier 1 — Strategic"
+  },
+  {
+    "vendor_id": "vendor-002",
+    "name": "NorthStar Networks",
+    "category": "Network infrastructure",
+    "tier": "Preferred",
+    "contract_start": "2024-01-10",
+    "contract_renewal": "2026-07-10",
+    "primary_regions": ["Cheyenne WY", "San Antonio TX"],
+    "performance_tier": "Tier 2 — Preferred"
+  },
+  {
+    "vendor_id": "vendor-003",
+    "name": "PacificCom Services",
+    "category": "Telecom and cabling",
+    "tier": "Preferred",
+    "contract_start": "2022-08-01",
+    "contract_renewal": "2026-08-01",
+    "primary_regions": ["Quincy WA", "Phoenix AZ"],
+    "performance_tier": "Tier 2 — Preferred"
+  },
+  {
+    "vendor_id": "vendor-004",
+    "name": "DataCore Logistics",
+    "category": "Hardware logistics",
+    "tier": "Standard",
+    "contract_start": "2023-11-20",
+    "contract_renewal": "2026-11-20",
+    "primary_regions": ["Boydton VA", "Atlanta GA"],
+    "performance_tier": "Tier 3 — Standard"
+  },
+  {
+    "vendor_id": "vendor-005",
+    "name": "MountainRidge Telecom",
+    "category": "Regional fiber",
+    "tier": "Standard",
+    "contract_start": "2025-09-01",
+    "contract_renewal": "2027-09-01",
+    "primary_regions": ["Cheyenne WY"],
+    "performance_tier": "Tier 3 — Standard"
+  },
+  {
+    "vendor_id": "vendor-006",
+    "name": "CoastalFiber Co",
+    "category": "Fiber installation",
+    "tier": "Preferred",
+    "contract_start": "2023-06-15",
+    "contract_renewal": "2026-06-15",
+    "primary_regions": ["San Antonio TX", "Phoenix AZ"],
+    "performance_tier": "Tier 2 — Preferred"
+  }
+]

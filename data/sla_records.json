@@ -1,0 +1,52 @@
+[
+  {
+    "vendor_id": "vendor-001",
+    "ack_minutes_target": 30,
+    "completion_hours_target": 8,
+    "breach_count_90d": 0,
+    "breach_rate_90d": 0.0,
+    "avg_ack_minutes_90d": 11.7,
+    "avg_completion_hours_90d": 5.5,
+    "tier_expectation": "Tier 1 SLA — strict"
+  },
+  {
+    "vendor_id": "vendor-002",
+    "ack_minutes_target": 30,
+    "completion_hours_target": 8,
+    "breach_count_90d": 2,
+    "breach_rate_90d": 0.25,
+    "avg_ack_minutes_90d": 28.75,
+    "avg_completion_hours_90d": 9.5,
+    "tier_expectation": "Tier 2 SLA — relaxed"
+  },
+  {
+    "vendor_id": "vendor-003",
+    "ack_minutes_target": 30,
+    "completion_hours_target": 10,
+    "breach_count_90d": 0,
+    "breach_rate_90d": 0.0,
+    "avg_ack_minutes_90d": 21.3,
+    "avg_completion_hours_90d": 7.9,
+    "tier_expectation": "Tier 2 SLA — relaxed"
+  },
+  {
+    "vendor_id": "vendor-004",
+    "ack_minutes_target": 60,
+    "completion_hours_target": 24,
+    "breach_count_90d": 11,
+    "breach_rate_90d": 0.92,
+    "avg_ack_minutes_90d": 91.0,
+    "avg_completion_hours_90d": 35.6,
+    "tier_expectation": "Tier 3 SLA — basic"
+  },
+  {
+    "vendor_id": "vendor-006",
+    "ack_minutes_target": 30,
+    "completion_hours_target": 8,
+    "breach_count_90d": 0,
+    "breach_rate_90d": 0.0,
+    "avg_ack_minutes_90d": 14.5,
+    "avg_completion_hours_90d": 6.0,
+    "tier_expectation": "Tier 2 SLA — relaxed"
+  }
+]
