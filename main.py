@@ -6,8 +6,8 @@ Responses server host so the same agent can run locally and on Foundry hosted
 compute.
 
 Required environment variables (injected by Foundry at runtime):
-    FOUNDRY_PROJECT_ENDPOINT
-    AZURE_AI_MODEL_DEPLOYMENT_NAME
+    FOUNDRY_PROJECT_ENDPOINT   (or AZURE_AI_PROJECT_ENDPOINT)
+    AZURE_AI_MODEL_DEPLOYMENT_NAME  (or MODEL_DEPLOYMENT_NAME)
 """
 
 from __future__ import annotations
@@ -17,6 +17,7 @@ import inspect
 import json
 import logging
 import os
+import time
 
 from azure.ai.agentserver.responses import (
     CreateResponse,
@@ -30,39 +31,113 @@ from azure.identity import DefaultAzureCredential
 
 from agent.agent import AGENT_TOOLS, load_system_prompt
 
+
+# ── Structured JSON logging ──────────────────────────────────────────────────
+
+class _JsonFormatter(logging.Formatter):
+    """Emit each log record as a single JSON line."""
+
+    def format(self, record: logging.LogRecord) -> str:
+        payload: dict = {
+            "ts": self.formatTime(record, "%Y-%m-%dT%H:%M:%S"),
+            "level": record.levelname,
+            "logger": record.name,
+            "message": record.getMessage(),
+        }
+        for key in ("tool_name", "arguments", "latency_ms", "response_id", "error"):
+            if hasattr(record, key):
+                payload[key] = getattr(record, key)
+        if record.exc_info:
+            payload["exc_info"] = self.formatException(record.exc_info)
+        return json.dumps(payload, default=str)
+
+
+_handler = logging.StreamHandler()
+_handler.setFormatter(_JsonFormatter())
+logging.root.setLevel(logging.INFO)
+logging.root.addHandler(_handler)
+
 logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.INFO)
 
-# ── Configuration ───────────────────────────────────────────────────────────
 
-FOUNDRY_PROJECT_ENDPOINT = os.environ.get("FOUNDRY_PROJECT_ENDPOINT") or os.environ.get(
-    "AZURE_AI_PROJECT_ENDPOINT"
-)
-if not FOUNDRY_PROJECT_ENDPOINT:
-    raise EnvironmentError(
-        "FOUNDRY_PROJECT_ENDPOINT is not set. The Foundry runtime injects it "
-        "automatically; for local runs set it in .env."
-    )
+# ── Configuration ─────────────────────────────────────────────────────────────
 
-AZURE_AI_MODEL_DEPLOYMENT_NAME = os.environ.get("AZURE_AI_MODEL_DEPLOYMENT_NAME") or os.environ.get(
-    "MODEL_DEPLOYMENT_NAME"
-)
-if not AZURE_AI_MODEL_DEPLOYMENT_NAME:
-    raise EnvironmentError(
-        "AZURE_AI_MODEL_DEPLOYMENT_NAME is not set. Declare it in "
-        "agent.manifest.yaml or .env."
-    )
+FOUNDRY_PROJECT_ENDPOINT: str | None = os.environ.get(
+    "FOUNDRY_PROJECT_ENDPOINT"
+) or os.environ.get("AZURE_AI_PROJECT_ENDPOINT")
 
-_credential = DefaultAzureCredential()
-_project_client = AIProjectClient(endpoint=FOUNDRY_PROJECT_ENDPOINT, credential=_credential)
-_openai_client = _project_client.get_openai_client()
+AZURE_AI_MODEL_DEPLOYMENT_NAME: str | None = os.environ.get(
+    "AZURE_AI_MODEL_DEPLOYMENT_NAME"
+) or os.environ.get("MODEL_DEPLOYMENT_NAME")
+
+
+def _require_env() -> None:
+    """Raise EnvironmentError if required env vars are absent.
+
+    Called at the top of handle_create so the container can start even when
+    Foundry hasn't injected env vars yet (e.g. during the build health-check).
+    """
+    if not FOUNDRY_PROJECT_ENDPOINT:
+        raise EnvironmentError(
+            "FOUNDRY_PROJECT_ENDPOINT is not set. The Foundry runtime injects it "
+            "automatically; for local runs set it in .env."
+        )
+    if not AZURE_AI_MODEL_DEPLOYMENT_NAME:
+        raise EnvironmentError(
+            "AZURE_AI_MODEL_DEPLOYMENT_NAME is not set. Declare it in "
+            "agent.manifest.yaml or .env."
+        )
+
+
+# ── Lazy credential / client init ─────────────────────────────────────────────
+
+_credential: DefaultAzureCredential | None = None
+_project_client: AIProjectClient | None = None
+_openai_client = None
+
+
+def _get_credential() -> DefaultAzureCredential:
+    global _credential
+    if _credential is None:
+        _credential = DefaultAzureCredential()
+    return _credential
+
+
+def _get_project_client() -> AIProjectClient:
+    global _project_client
+    if _project_client is None:
+        assert FOUNDRY_PROJECT_ENDPOINT  # validated by _require_env before first use
+        _project_client = AIProjectClient(
+            endpoint=FOUNDRY_PROJECT_ENDPOINT, credential=_get_credential()
+        )
+    return _project_client
+
+
+def _get_openai_client():
+    global _openai_client
+    if _openai_client is None:
+        _openai_client = _get_project_client().get_openai_client()
+    return _openai_client
+
 
 SYSTEM_PROMPT = load_system_prompt()
 
 
-# ── Tool registry ───────────────────────────────────────────────────────────
+# ── Tool registry ─────────────────────────────────────────────────────────────
 
 _TOOL_LOOKUP = {fn.__name__: fn for fn in AGENT_TOOLS}
+
+
+def _param_json_schema(name: str, param: inspect.Parameter) -> dict:
+    """Derive a JSON Schema snippet for one tool parameter."""
+    annotation = param.annotation
+    # Real integer annotation
+    if annotation is int:
+        return {"type": "integer", "description": f"Argument {name}"}
+    # `days` parameters are semantically integers even when annotated as str
+    if name == "days":
+        return {"type": "integer", "description": "Lookback window in days"}
+    return {"type": "string", "description": f"Argument {name}"}
 
 
 def _build_responses_tools() -> list[dict]:
@@ -73,7 +148,7 @@ def _build_responses_tools() -> list[dict]:
         properties: dict[str, dict] = {}
         required: list[str] = []
         for name, param in sig.parameters.items():
-            properties[name] = {"type": "string", "description": f"Argument {name}"}
+            properties[name] = _param_json_schema(name, param)
             if param.default is inspect.Parameter.empty:
                 required.append(name)
         schemas.append(
@@ -110,7 +185,7 @@ def _execute_tool_call(function_name: str, arguments: str) -> str:
     return result if isinstance(result, str) else json.dumps(result)
 
 
-# ── Responses protocol handler ──────────────────────────────────────────────
+# ── Responses protocol handler ────────────────────────────────────────────────
 
 MAX_TOOL_ITERATIONS = 6
 
@@ -135,6 +210,8 @@ async def handle_create(
     cancellation_signal: asyncio.Event,
 ):
     """Drive the model + tool loop and stream the final answer."""
+    _require_env()
+
     stream = ResponseEventStream(response_id=context.response_id, request=request)
 
     yield stream.emit_created()
@@ -149,7 +226,7 @@ async def handle_create(
     text_content = message_item.add_text_content()
     yield text_content.emit_added()
 
-    full_text = ""
+    final_text = ""
     loop = asyncio.get_event_loop()
     model_input: list[dict] = _build_input(user_input, history)
 
@@ -161,7 +238,7 @@ async def handle_create(
 
             response = await loop.run_in_executor(
                 None,
-                lambda: _openai_client.responses.create(
+                lambda: _get_openai_client().responses.create(
                     model=AZURE_AI_MODEL_DEPLOYMENT_NAME,
                     instructions=SYSTEM_PROMPT,
                     input=model_input,
@@ -177,17 +254,36 @@ async def handle_create(
                     if item.type == "message":
                         for part in item.content:
                             if part.type == "output_text":
-                                full_text += part.text
-                if full_text:
-                    yield text_content.emit_delta(full_text)
+                                final_text += part.text
+                if final_text:
+                    yield text_content.emit_delta(final_text)
                 break
 
-            # Append the function_call items plus their outputs to the input
-            # and loop. The Responses API requires both halves of the pair.
+            # Append function_call items (as plain dicts — Responses API requires
+            # a homogeneous input array) and their outputs, then loop.
             for fc in function_calls:
-                model_input.append(fc)
-                result = _execute_tool_call(fc.name, fc.arguments)
-                logger.info("tool=%s args=%s", fc.name, fc.arguments)
+                model_input.append(
+                    {
+                        "type": "function_call",
+                        "call_id": fc.call_id,
+                        "name": fc.name,
+                        "arguments": fc.arguments,
+                    }
+                )
+                t0 = time.monotonic()
+                result = await loop.run_in_executor(None, _execute_tool_call, fc.name, fc.arguments)
+                latency_ms = int((time.monotonic() - t0) * 1000)
+                logger.info(
+                    "tool call completed",
+                    extra={
+                        "tool_name": fc.name,
+                        "arguments": (
+                            fc.arguments[:200] if len(fc.arguments) > 200 else fc.arguments
+                        ),
+                        "latency_ms": latency_ms,
+                        "response_id": context.response_id,
+                    },
+                )
                 model_input.append(
                     {
                         "type": "function_call_output",
@@ -197,18 +293,19 @@ async def handle_create(
                 )
         else:
             # Iteration cap reached without a final answer.
-            fallback = (
+            final_text = (
                 "I reached the tool-call iteration cap without producing a verdict. "
                 "Please rephrase or narrow the question."
             )
-            yield text_content.emit_delta(fallback)
-            full_text = fallback
+            yield text_content.emit_delta(final_text)
 
     except Exception as e:  # noqa: BLE001
-        err = f"Error calling Foundry model: {e}"
-        logger.exception(err)
-        if not full_text:
-            yield text_content.emit_delta(err)
+        logger.exception(
+            "Error calling Foundry model",
+            extra={"error": str(e), "response_id": context.response_id},
+        )
+        yield stream.emit_incomplete(str(e))
+        return
 
     yield text_content.emit_text_done()
     yield text_content.emit_done()

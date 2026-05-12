@@ -1,31 +1,21 @@
 name: groundedness
-display_name: Groundedness
-description: |
-  Measures whether the agent's claims are traceable to the underlying operational
-  evidence (SLA records, dispatch history, communications, incident outcomes).
-  Penalizes fabricated metrics, hallucinated patterns, and conclusions that the
-  available data does not support.
-type: llm_judge
-judge_model: gpt-4o
-threshold:
-  pass: 0.75
-  warn: 0.65
-
-instructions: |
+category: quality
+scoringType: ordinal
+promptText: |
   You are evaluating a vendor performance analyst agent for groundedness.
 
-  Each test case includes:
-    - query: the question
-    - reference_facts: the operational facts available to the agent
-    - response: the agent's answer
+  Query: {{query}}
+  Ground truth facts: {{ground_truth}}
+  Context: {{context}}
+  Agent response: {{response}}
 
-  Score on a 0.0 to 1.0 scale:
+  Score on a 1–5 ordinal scale where 5 is best.
 
   1. CLAIM TRACEABILITY (60% of score)
      - For every quantitative or factual claim in the response, is it supported by
-       reference_facts? Specific numbers, breach counts, and dates must match.
-     - Penalize fabricated statistics (e.g. inventing percentages that don't
-       appear in the underlying data).
+       the ground truth facts and context? Specific numbers, breach counts, and
+       dates must match.
+     - Penalize fabricated statistics or claims not traceable to the provided facts.
 
   2. PATTERN ATTRIBUTION (40% of score)
      - When the response identifies a pattern or trend (e.g. "repeat reworks",
@@ -33,9 +23,14 @@ instructions: |
        justify that attribution?
      - Penalize over-attribution from small samples or insufficient signal.
 
-  Return JSON: {"score": <0.0-1.0>, "reasoning": "<2-3 sentences>"}
+  Scoring guide:
+    5 - All claims fully traceable to provided facts; no fabrication
+    4 - Nearly all claims grounded; minor unverifiable details
+    3 - Mixed grounding; some unsupported claims present
+    2 - Multiple unsupported or fabricated claims
+    1 - Predominantly fabricated or ungrounded response
 
-input_fields:
-  - query
-  - response
-  - reference_facts
+  Return only an integer between 1 and 5.
+minScore: 1
+maxScore: 5
+passThreshold: 4
