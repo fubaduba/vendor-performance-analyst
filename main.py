@@ -188,6 +188,7 @@ def _execute_tool_call(function_name: str, arguments: str) -> str:
 # ── Responses protocol handler ────────────────────────────────────────────────
 
 MAX_TOOL_ITERATIONS = 6
+_MAX_LOG_ARG_LENGTH = 200  # truncation limit for argument strings in structured logs
 
 app = ResponsesAgentServerHost(
     options=ResponsesServerOptions(default_fetch_history_count=20),
@@ -278,7 +279,9 @@ async def handle_create(
                     extra={
                         "tool_name": fc.name,
                         "arguments": (
-                            fc.arguments[:200] if len(fc.arguments) > 200 else fc.arguments
+                            fc.arguments[:_MAX_LOG_ARG_LENGTH]
+                            if len(fc.arguments) > _MAX_LOG_ARG_LENGTH
+                            else fc.arguments
                         ),
                         "latency_ms": latency_ms,
                         "response_id": context.response_id,

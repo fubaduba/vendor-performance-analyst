@@ -159,13 +159,41 @@ def render_prompt(
 
 
 def parse_score(text: str, min_score: int, max_score: int) -> int:
-    """Extract an integer score from judge output, clamped to [min_score, max_score]."""
-    matches = re.findall(r"\b([1-9][0-9]*)\b", text.strip())
-    if matches:
+    """Extract an integer score from judge output in [min_score, max_score].
+
+    Looks for a bare integer in the judge's reply that falls within the valid
+    range before falling back to a pattern that clamps any integer found.
+    Logs a warning when no parseable integer is found so malformed replies are
+    visible in the output.
+    """
+    stripped = text.strip()
+    # Prefer a digit that is already within the valid range.
+    in_range = re.findall(
+        rf"\b([{min_score}-{max_score}])\b" if max_score <= 9 else r"\b(\d+)\b",
+        stripped,
+    )
+    for token in in_range:
         try:
-            return max(min_score, min(max_score, int(matches[0])))
+            value = int(token)
+            if min_score <= value <= max_score:
+                return value
+        except ValueError:
+            continue
+    # Fallback: clamp any integer found.
+    any_int = re.findall(r"\b(\d+)\b", stripped)
+    if any_int:
+        try:
+            return max(min_score, min(max_score, int(any_int[0])))
         except ValueError:
             pass
+    import logging as _logging
+    _logging.getLogger(__name__).warning(
+        "parse_score: could not extract integer from judge reply (length=%d); "
+        "falling back to midpoint %d. Reply prefix: %.80r",
+        len(text),
+        (min_score + max_score) // 2,
+        text[:80],
+    )
     return (min_score + max_score) // 2
 
 
