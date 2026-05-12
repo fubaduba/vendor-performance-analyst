@@ -1,22 +1,272 @@
 [
-  {"incident_id": "INC-501", "vendor_id": "vendor-001", "days_ago": 2, "type": "Fiber cut", "resolution_hours": 6, "repeat_within_90d": false, "customer_impact": "minor", "outcome": "Resolved within SLA"},
-  {"incident_id": "INC-502", "vendor_id": "vendor-001", "days_ago": 22, "type": "Fiber cut", "resolution_hours": 7, "repeat_within_90d": false, "customer_impact": "minor", "outcome": "Resolved within SLA"},
-  {"incident_id": "INC-503", "vendor_id": "vendor-001", "days_ago": 48, "type": "Fiber cut", "resolution_hours": 6, "repeat_within_90d": false, "customer_impact": "minor", "outcome": "Resolved within SLA"},
-
-  {"incident_id": "INC-601", "vendor_id": "vendor-002", "days_ago": 12, "type": "Switch replacement", "resolution_hours": 11, "repeat_within_90d": false, "customer_impact": "moderate", "outcome": "SLA breach (~3h over target); resolved"},
-  {"incident_id": "INC-602", "vendor_id": "vendor-002", "days_ago": 26, "type": "Router fault", "resolution_hours": 10, "repeat_within_90d": false, "customer_impact": "moderate", "outcome": "Resolved within SLA"},
-
-  {"incident_id": "INC-701", "vendor_id": "vendor-003", "days_ago": 4, "type": "Cable pull rework", "resolution_hours": 8, "repeat_within_90d": true, "customer_impact": "moderate", "outcome": "Resolved but flagged as rework"},
-  {"incident_id": "INC-702", "vendor_id": "vendor-003", "days_ago": 25, "type": "Re-termination (rework)", "resolution_hours": 7, "repeat_within_90d": true, "customer_impact": "moderate", "outcome": "Resolved but flagged as rework"},
-  {"incident_id": "INC-703", "vendor_id": "vendor-003", "days_ago": 40, "type": "Re-termination (rework)", "resolution_hours": 9, "repeat_within_90d": true, "customer_impact": "moderate", "outcome": "Third rework on same termination; quality concern raised"},
-
-  {"incident_id": "INC-801", "vendor_id": "vendor-004", "days_ago": 3, "type": "Hardware delivery delay", "resolution_hours": 36, "repeat_within_90d": true, "customer_impact": "high", "outcome": "Delivery 12h past SLA; capacity ramp delayed"},
-  {"incident_id": "INC-802", "vendor_id": "vendor-004", "days_ago": 9, "type": "Hardware delivery delay", "resolution_hours": 48, "repeat_within_90d": true, "customer_impact": "high", "outcome": "Delivery 24h past SLA; emergency reroute required"},
-  {"incident_id": "INC-803", "vendor_id": "vendor-004", "days_ago": 17, "type": "Emergency parts shortage", "resolution_hours": 24, "repeat_within_90d": true, "customer_impact": "high", "outcome": "Resolved via alternate sourcing"},
-  {"incident_id": "INC-804", "vendor_id": "vendor-004", "days_ago": 31, "type": "Hardware delivery delay", "resolution_hours": 40, "repeat_within_90d": true, "customer_impact": "high", "outcome": "Repeat breach; PIP triggered"},
-
-  {"incident_id": "INC-901", "vendor_id": "vendor-005", "days_ago": 14, "type": "Fiber pull completion", "resolution_hours": 12, "repeat_within_90d": false, "customer_impact": "minor", "outcome": "Resolved within SLA"},
-
-  {"incident_id": "INC-1001", "vendor_id": "vendor-006", "days_ago": 6, "type": "Fiber install", "resolution_hours": 6, "repeat_within_90d": false, "customer_impact": "minor", "outcome": "Resolved within SLA"},
-  {"incident_id": "INC-1002", "vendor_id": "vendor-006", "days_ago": 21, "type": "Splice repair", "resolution_hours": 7, "repeat_within_90d": false, "customer_impact": "minor", "outcome": "Resolved within SLA"}
+  {
+    "incident_id": "INC-501",
+    "vendor_id": "vendor-001",
+    "days_ago": 2,
+    "type": "Fiber cut",
+    "resolution_hours": 6,
+    "repeat_within_90d": false,
+    "customer_impact": "minor",
+    "outcome": "Resolved within SLA"
+  },
+  {
+    "incident_id": "INC-502",
+    "vendor_id": "vendor-001",
+    "days_ago": 22,
+    "type": "Fiber cut",
+    "resolution_hours": 7,
+    "repeat_within_90d": false,
+    "customer_impact": "minor",
+    "outcome": "Resolved within SLA"
+  },
+  {
+    "incident_id": "INC-503",
+    "vendor_id": "vendor-001",
+    "days_ago": 48,
+    "type": "Fiber cut",
+    "resolution_hours": 6,
+    "repeat_within_90d": false,
+    "customer_impact": "minor",
+    "outcome": "Resolved within SLA"
+  },
+  {
+    "incident_id": "INC-601",
+    "vendor_id": "vendor-002",
+    "days_ago": 12,
+    "type": "Switch replacement",
+    "resolution_hours": 11,
+    "repeat_within_90d": false,
+    "customer_impact": "moderate",
+    "outcome": "SLA breach (~3h over target); resolved"
+  },
+  {
+    "incident_id": "INC-602",
+    "vendor_id": "vendor-002",
+    "days_ago": 26,
+    "type": "Router fault",
+    "resolution_hours": 10,
+    "repeat_within_90d": false,
+    "customer_impact": "moderate",
+    "outcome": "Resolved within SLA"
+  },
+  {
+    "incident_id": "INC-701",
+    "vendor_id": "vendor-003",
+    "days_ago": 4,
+    "type": "Cable pull rework",
+    "resolution_hours": 8,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "Resolved but flagged as rework"
+  },
+  {
+    "incident_id": "INC-702",
+    "vendor_id": "vendor-003",
+    "days_ago": 25,
+    "type": "Re-termination (rework)",
+    "resolution_hours": 7,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "Resolved but flagged as rework"
+  },
+  {
+    "incident_id": "INC-703",
+    "vendor_id": "vendor-003",
+    "days_ago": 40,
+    "type": "Re-termination (rework)",
+    "resolution_hours": 9,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "Third rework on same termination; quality concern raised"
+  },
+  {
+    "incident_id": "INC-801",
+    "vendor_id": "vendor-004",
+    "days_ago": 3,
+    "type": "Hardware delivery delay",
+    "resolution_hours": 36,
+    "repeat_within_90d": true,
+    "customer_impact": "high",
+    "outcome": "Delivery 12h past SLA; capacity ramp delayed"
+  },
+  {
+    "incident_id": "INC-802",
+    "vendor_id": "vendor-004",
+    "days_ago": 9,
+    "type": "Hardware delivery delay",
+    "resolution_hours": 48,
+    "repeat_within_90d": true,
+    "customer_impact": "high",
+    "outcome": "Delivery 24h past SLA; emergency reroute required"
+  },
+  {
+    "incident_id": "INC-803",
+    "vendor_id": "vendor-004",
+    "days_ago": 17,
+    "type": "Emergency parts shortage",
+    "resolution_hours": 24,
+    "repeat_within_90d": true,
+    "customer_impact": "high",
+    "outcome": "Resolved via alternate sourcing"
+  },
+  {
+    "incident_id": "INC-804",
+    "vendor_id": "vendor-004",
+    "days_ago": 31,
+    "type": "Hardware delivery delay",
+    "resolution_hours": 40,
+    "repeat_within_90d": true,
+    "customer_impact": "high",
+    "outcome": "Repeat breach; PIP triggered"
+  },
+  {
+    "incident_id": "INC-901",
+    "vendor_id": "vendor-005",
+    "days_ago": 14,
+    "type": "Fiber pull completion",
+    "resolution_hours": 12,
+    "repeat_within_90d": false,
+    "customer_impact": "minor",
+    "outcome": "Resolved within SLA"
+  },
+  {
+    "incident_id": "INC-1001",
+    "vendor_id": "vendor-006",
+    "days_ago": 6,
+    "type": "Fiber install",
+    "resolution_hours": 6,
+    "repeat_within_90d": false,
+    "customer_impact": "minor",
+    "outcome": "Resolved within SLA"
+  },
+  {
+    "incident_id": "INC-1002",
+    "vendor_id": "vendor-006",
+    "days_ago": 21,
+    "type": "Splice repair",
+    "resolution_hours": 7,
+    "repeat_within_90d": false,
+    "customer_impact": "minor",
+    "outcome": "Resolved within SLA"
+  },
+  {
+    "incident_id": "INC-1101",
+    "vendor_id": "vendor-007",
+    "days_ago": 2,
+    "type": "Cooling loop pressure alert",
+    "resolution_hours": 5,
+    "repeat_within_90d": false,
+    "customer_impact": "minor",
+    "outcome": "Resolved within SLA"
+  },
+  {
+    "incident_id": "INC-1102",
+    "vendor_id": "vendor-007",
+    "days_ago": 19,
+    "type": "Power distribution panel alarm",
+    "resolution_hours": 7,
+    "repeat_within_90d": false,
+    "customer_impact": "minor",
+    "outcome": "Resolved within SLA"
+  },
+  {
+    "incident_id": "INC-1103",
+    "vendor_id": "vendor-007",
+    "days_ago": 44,
+    "type": "Cooling pump seal leak",
+    "resolution_hours": 7,
+    "repeat_within_90d": false,
+    "customer_impact": "minor",
+    "outcome": "Resolved within SLA"
+  },
+  {
+    "incident_id": "INC-1201",
+    "vendor_id": "vendor-008",
+    "days_ago": 3,
+    "type": "Fiber splice correction",
+    "resolution_hours": 6,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "Resolved within SLA but repeat callout recorded"
+  },
+  {
+    "incident_id": "INC-1202",
+    "vendor_id": "vendor-008",
+    "days_ago": 21,
+    "type": "Fiber run validation",
+    "resolution_hours": 6,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "Second recurrence at same corridor; incomplete remediation concern"
+  },
+  {
+    "incident_id": "INC-1203",
+    "vendor_id": "vendor-008",
+    "days_ago": 39,
+    "type": "Fiber cut restoration",
+    "resolution_hours": 8,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "Resolved within SLA; follow-up callout required"
+  },
+  {
+    "incident_id": "INC-1301",
+    "vendor_id": "vendor-009",
+    "days_ago": 12,
+    "type": "NOC alert triage",
+    "resolution_hours": 9,
+    "repeat_within_90d": false,
+    "customer_impact": "minor",
+    "outcome": "Resolved within SLA"
+  },
+  {
+    "incident_id": "INC-1302",
+    "vendor_id": "vendor-009",
+    "days_ago": 41,
+    "type": "Packet loss investigation",
+    "resolution_hours": 14,
+    "repeat_within_90d": false,
+    "customer_impact": "moderate",
+    "outcome": "SLA breach; remediation completed"
+  },
+  {
+    "incident_id": "INC-1401",
+    "vendor_id": "vendor-010",
+    "days_ago": 1,
+    "type": "CRAH reset recurrence",
+    "resolution_hours": 7,
+    "repeat_within_90d": true,
+    "customer_impact": "high",
+    "outcome": "Resolved quickly but repeat failure caused service instability"
+  },
+  {
+    "incident_id": "INC-1402",
+    "vendor_id": "vendor-010",
+    "days_ago": 10,
+    "type": "Airflow balancing recurrence",
+    "resolution_hours": 8,
+    "repeat_within_90d": true,
+    "customer_impact": "high",
+    "outcome": "Second recurrence inside 30 days despite SLA-compliant closure"
+  },
+  {
+    "incident_id": "INC-1403",
+    "vendor_id": "vendor-010",
+    "days_ago": 24,
+    "type": "Condensate issue recurrence",
+    "resolution_hours": 7,
+    "repeat_within_90d": true,
+    "customer_impact": "high",
+    "outcome": "Resolved within SLA; customer impact remained high due to repeat outages"
+  },
+  {
+    "incident_id": "INC-1404",
+    "vendor_id": "vendor-010",
+    "days_ago": 49,
+    "type": "Fan motor repeat alarm",
+    "resolution_hours": 8,
+    "repeat_within_90d": true,
+    "customer_impact": "high",
+    "outcome": "Repeated alarm pattern continued after prior fix"
+  }
 ]

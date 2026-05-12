@@ -23,6 +23,20 @@ promptText: |
        justify that attribution?
      - Penalize over-attribution from small samples or insufficient signal.
 
+  IMPORTANT — distinguish two kinds of "no data" responses:
+
+    GOOD: when tools returned empty results, the response says "no records
+    found" explicitly. Score 5.
+
+    BAD: when tools returned data, the response says "no records found" or
+    refuses to cite specific numbers/IDs. This is ungroundedness in the form
+    of refusal-to-cite. Score 1 — it is as bad as fabrication, because both
+    produce wrong information.
+
+    Use the reference facts to determine which case applies. If reference
+    facts list specific data points, the agent had data — refusing to cite it
+    scores 1.
+
   Scoring guide:
     5 - All claims fully traceable to provided facts; no fabrication
     4 - Nearly all claims grounded; minor unverifiable details

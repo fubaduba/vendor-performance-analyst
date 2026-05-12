@@ -6,8 +6,11 @@
     "tier": "Strategic",
     "contract_start": "2023-04-15",
     "contract_renewal": "2026-04-15",
-    "primary_regions": ["Quincy WA", "Boydton VA"],
-    "performance_tier": "Tier 1 — Strategic"
+    "primary_regions": [
+      "Quincy WA",
+      "Boydton VA"
+    ],
+    "performance_tier": "Tier 1 \u2014 Strategic"
   },
   {
     "vendor_id": "vendor-002",
@@ -16,8 +19,11 @@
     "tier": "Preferred",
     "contract_start": "2024-01-10",
     "contract_renewal": "2026-07-10",
-    "primary_regions": ["Cheyenne WY", "San Antonio TX"],
-    "performance_tier": "Tier 2 — Preferred"
+    "primary_regions": [
+      "Cheyenne WY",
+      "San Antonio TX"
+    ],
+    "performance_tier": "Tier 2 \u2014 Preferred"
   },
   {
     "vendor_id": "vendor-003",
@@ -26,8 +32,11 @@
     "tier": "Preferred",
     "contract_start": "2022-08-01",
     "contract_renewal": "2026-08-01",
-    "primary_regions": ["Quincy WA", "Phoenix AZ"],
-    "performance_tier": "Tier 2 — Preferred"
+    "primary_regions": [
+      "Quincy WA",
+      "Phoenix AZ"
+    ],
+    "performance_tier": "Tier 2 \u2014 Preferred"
   },
   {
     "vendor_id": "vendor-004",
@@ -36,8 +45,11 @@
     "tier": "Standard",
     "contract_start": "2023-11-20",
     "contract_renewal": "2026-11-20",
-    "primary_regions": ["Boydton VA", "Atlanta GA"],
-    "performance_tier": "Tier 3 — Standard"
+    "primary_regions": [
+      "Boydton VA",
+      "Atlanta GA"
+    ],
+    "performance_tier": "Tier 3 \u2014 Standard"
   },
   {
     "vendor_id": "vendor-005",
@@ -46,8 +58,10 @@
     "tier": "Standard",
     "contract_start": "2025-09-01",
     "contract_renewal": "2027-09-01",
-    "primary_regions": ["Cheyenne WY"],
-    "performance_tier": "Tier 3 — Standard"
+    "primary_regions": [
+      "Cheyenne WY"
+    ],
+    "performance_tier": "Tier 3 \u2014 Standard"
   },
   {
     "vendor_id": "vendor-006",
@@ -56,7 +70,61 @@
     "tier": "Preferred",
     "contract_start": "2023-06-15",
     "contract_renewal": "2026-06-15",
-    "primary_regions": ["San Antonio TX", "Phoenix AZ"],
-    "performance_tier": "Tier 2 — Preferred"
+    "primary_regions": [
+      "San Antonio TX",
+      "Phoenix AZ"
+    ],
+    "performance_tier": "Tier 2 \u2014 Preferred"
+  },
+  {
+    "vendor_id": "vendor-007",
+    "name": "RidgeLine Power & Cooling",
+    "category": "Mechanical & power systems",
+    "tier": "Strategic",
+    "contract_start": "2022-03-10",
+    "contract_renewal": "2027-03-10",
+    "primary_regions": [
+      "Atlanta GA",
+      "Boydton VA"
+    ],
+    "performance_tier": "Tier 1 \u2014 Strategic"
+  },
+  {
+    "vendor_id": "vendor-008",
+    "name": "MetroCom Fiber Solutions",
+    "category": "Fiber infrastructure",
+    "tier": "Preferred",
+    "contract_start": "2023-02-01",
+    "contract_renewal": "2026-02-01",
+    "primary_regions": [
+      "San Antonio TX",
+      "Cheyenne WY"
+    ],
+    "performance_tier": "Tier 2 \u2014 Preferred"
+  },
+  {
+    "vendor_id": "vendor-009",
+    "name": "Sentinel Network Services",
+    "category": "Network monitoring",
+    "tier": "Standard",
+    "contract_start": "2026-03-12",
+    "contract_renewal": "2028-03-12",
+    "primary_regions": [
+      "Phoenix AZ"
+    ],
+    "performance_tier": "Tier 3 \u2014 Standard"
+  },
+  {
+    "vendor_id": "vendor-010",
+    "name": "Apex Mechanical Services",
+    "category": "HVAC",
+    "tier": "Standard",
+    "contract_start": "2023-07-18",
+    "contract_renewal": "2026-07-18",
+    "primary_regions": [
+      "Boydton VA",
+      "Atlanta GA"
+    ],
+    "performance_tier": "Tier 3 \u2014 Standard"
   }
 ]
