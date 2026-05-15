@@ -230,5 +230,165 @@
     "topic": "Atlanta recurrence escalation",
     "sentiment": "negative",
     "summary": "Site operations requested executive review after second recurrence on the same unit."
+  },
+  {
+    "vendor_id": "vendor-004",
+    "days_ago": 2,
+    "channel": "Email",
+    "topic": "Boydton VA power failure escalation",
+    "sentiment": "negative",
+    "summary": "VP-level escalation thread following fourth power event in 60 days. Contract review requested."
+  },
+  {
+    "vendor_id": "vendor-004",
+    "days_ago": 7,
+    "channel": "Teams",
+    "topic": "SLA breach formal notice",
+    "sentiment": "negative",
+    "summary": "Formal notice of SLA breach sent to vendor account manager. Response pending."
+  },
+  {
+    "vendor_id": "vendor-004",
+    "days_ago": 14,
+    "channel": "Email",
+    "topic": "PIP follow-up",
+    "sentiment": "negative",
+    "summary": "Follow-up on PIP milestones. Vendor acknowledged two of five corrective items; three remain open."
+  },
+  {
+    "vendor_id": "vendor-004",
+    "days_ago": 21,
+    "channel": "Call",
+    "topic": "Executive review meeting notes",
+    "sentiment": "negative",
+    "summary": "Executive QBR. Vendor cited supply-chain delays as root cause. Operations team disputed explanation."
+  },
+  {
+    "vendor_id": "vendor-004",
+    "days_ago": 30,
+    "channel": "Email",
+    "topic": "Cooling event post-mortem",
+    "sentiment": "negative",
+    "summary": "[automated summary failed]"
+  },
+  {
+    "vendor_id": "vendor-002",
+    "days_ago": 40,
+    "channel": "Email",
+    "topic": "Quarterly status \u2014 no response",
+    "sentiment": "neutral",
+    "summary": "Quarterly status request sent. No response received as of 40 days ago."
+  },
+  {
+    "vendor_id": "vendor-002",
+    "days_ago": 55,
+    "channel": "Teams",
+    "topic": "Link flap follow-up",
+    "sentiment": "negative",
+    "summary": "Follow-up on recurring link flap incidents. Vendor acknowledged but provided no timeline."
+  },
+  {
+    "vendor_id": "vendor-002",
+    "days_ago": 62,
+    "channel": "Email",
+    "topic": "SLA metrics review \u2014 overdue",
+    "sentiment": "neutral",
+    "summary": "Requested SLA metrics package. No response. Communication gap flagged."
+  },
+  {
+    "vendor_id": "vendor-005",
+    "days_ago": 5,
+    "channel": "Teams",
+    "topic": "Cheyenne WY backhaul check",
+    "sentiment": "neutral",
+    "summary": "Routine check-in. No issues flagged by vendor."
+  },
+  {
+    "vendor_id": "vendor-005",
+    "days_ago": 18,
+    "channel": "Email",
+    "topic": "Tower equipment inspection",
+    "sentiment": "positive",
+    "summary": "Vendor provided inspection report. All tower equipment within spec."
+  },
+  {
+    "vendor_id": "vendor-005",
+    "days_ago": 35,
+    "channel": "Teams",
+    "topic": "Microwave link degradation review",
+    "sentiment": "neutral",
+    "summary": "Discussion of recent link degradation event. Vendor attributed to weather; monitoring increased."
+  },
+  {
+    "vendor_id": "vendor-009",
+    "days_ago": 8,
+    "channel": "Email",
+    "topic": "Phoenix AZ sensor alert review",
+    "sentiment": "neutral",
+    "summary": "Review of recent sensor alert pattern. Vendor indicated firmware update resolves issue."
+  },
+  {
+    "vendor_id": "vendor-009",
+    "days_ago": 22,
+    "channel": "Teams",
+    "topic": "Network monitoring gap",
+    "sentiment": "negative",
+    "summary": "Discussion of monitoring blackout period. Data gaps remain unexplained."
+  },
+  {
+    "vendor_id": "vendor-009",
+    "days_ago": 48,
+    "channel": "Call",
+    "topic": "Incident reporting completeness",
+    "sentiment": "neutral",
+    "summary": "Vendor acknowledged incomplete incident data. Committed to backfill within 30 days."
+  },
+  {
+    "vendor_id": "vendor-007",
+    "days_ago": 4,
+    "channel": "Teams",
+    "topic": "Atlanta GA cooling cluster alert",
+    "sentiment": "negative",
+    "summary": "Alert raised on third cooling event in three weeks. Vendor dispatched senior engineer."
+  },
+  {
+    "vendor_id": "vendor-007",
+    "days_ago": 11,
+    "channel": "Email",
+    "topic": "Cooling system RCA",
+    "sentiment": "neutral",
+    "summary": "Root cause analysis submitted. Vendor identified faulty CRAC unit batch as common cause."
+  },
+  {
+    "vendor_id": "vendor-010",
+    "days_ago": 6,
+    "channel": "Email",
+    "topic": "Chiller fault tracking",
+    "sentiment": "neutral",
+    "summary": "Monthly chiller health report. Two units flagged for preventive maintenance."
+  },
+  {
+    "vendor_id": "vendor-010",
+    "days_ago": 28,
+    "channel": "Teams",
+    "topic": "Repeat HVAC alarm pattern",
+    "sentiment": "negative",
+    "summary": "Operations flagged recurring HVAC alarm pattern. Vendor scheduled site visit."
+  },
+  {
+    "vendor_id": "vendor-001",
+    "days_ago": 6,
+    "channel": "Email",
+    "topic": "Proactive fiber inspection report",
+    "sentiment": "positive",
+    "summary": "Vendor submitted proactive inspection results. No anomalies detected at Quincy WA."
+  },
+  {
+    "vendor_id": "vendor-001",
+    "days_ago": 20,
+    "channel": "Teams",
+    "topic": "Capacity planning update",
+    "sentiment": "positive",
+    "summary": "FiberWorks shared updated capacity plan. All milestones on track for Q3."
   }
 ]

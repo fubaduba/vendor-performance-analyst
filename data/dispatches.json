@@ -538,5 +538,1573 @@
     "ack_minutes": 22,
     "completion_hours": 7,
     "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-1007",
+    "vendor_id": "vendor-001",
+    "site": "Boydton VA",
+    "days_ago": 5,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 9,
+    "completion_hours": 4.7,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-1008",
+    "vendor_id": "vendor-001",
+    "site": "Quincy WA",
+    "days_ago": 84,
+    "incident_type": "Splicing issue",
+    "ack_minutes": 9,
+    "completion_hours": 4.7,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-1009",
+    "vendor_id": "vendor-001",
+    "site": "Quincy WA",
+    "days_ago": 21,
+    "incident_type": "Splicing issue",
+    "ack_minutes": 13,
+    "completion_hours": 8.7,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-1010",
+    "vendor_id": "vendor-001",
+    "site": "Quincy WA",
+    "days_ago": 49,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 9,
+    "completion_hours": 4.7,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-1011",
+    "vendor_id": "vendor-001",
+    "site": "Quincy WA",
+    "days_ago": 59,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 9,
+    "completion_hours": 4.7,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-1012",
+    "vendor_id": "vendor-001",
+    "site": "Boydton VA",
+    "days_ago": 74,
+    "incident_type": "Cable degradation",
+    "ack_minutes": 9,
+    "completion_hours": 4.7,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-1013",
+    "vendor_id": "vendor-001",
+    "site": "Boydton VA",
+    "days_ago": 11,
+    "incident_type": "Cable degradation",
+    "ack_minutes": null,
+    "completion_hours": 6.5,
+    "sla_met": false,
+    "note": "Acknowledgement time not captured in dispatch system"
+  },
+  {
+    "dispatch_id": "DSP-1014",
+    "vendor_id": "vendor-001",
+    "site": "Boydton VA",
+    "days_ago": 21,
+    "incident_type": "Connector fault",
+    "ack_minutes": 9,
+    "completion_hours": 4.1,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-1015",
+    "vendor_id": "vendor-001",
+    "site": "Quincy WA",
+    "days_ago": 78,
+    "incident_type": "Cable degradation",
+    "ack_minutes": 9,
+    "completion_hours": 4.4,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-1016",
+    "vendor_id": "vendor-001",
+    "site": "Boydton VA",
+    "days_ago": 82,
+    "incident_type": "Cable degradation",
+    "ack_minutes": 9,
+    "completion_hours": 4.3,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-1017",
+    "vendor_id": "vendor-001",
+    "site": "Quincy WA",
+    "days_ago": 5,
+    "incident_type": "Connector fault",
+    "ack_minutes": 4,
+    "completion_hours": 4.7,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-1018",
+    "vendor_id": "vendor-001",
+    "site": "Boydton VA",
+    "days_ago": 28,
+    "incident_type": "Splicing issue",
+    "ack_minutes": 15,
+    "completion_hours": 4.1,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-1019",
+    "vendor_id": "vendor-001",
+    "site": "Quincy WA",
+    "days_ago": 72,
+    "incident_type": "Connector fault",
+    "ack_minutes": 9,
+    "completion_hours": 4.7,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-1020",
+    "vendor_id": "vendor-001",
+    "site": "Boydton VA",
+    "days_ago": 29,
+    "incident_type": "Cable degradation",
+    "ack_minutes": 7,
+    "completion_hours": 4.7,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-2005",
+    "vendor_id": "vendor-002",
+    "site": "Cheyenne WY",
+    "days_ago": 20,
+    "incident_type": "Routing misconfiguration",
+    "ack_minutes": 22,
+    "completion_hours": 8.1,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-2006",
+    "vendor_id": "vendor-002",
+    "site": "San Antonio TX",
+    "days_ago": 77,
+    "incident_type": "Switch fault",
+    "ack_minutes": 19,
+    "completion_hours": 1.6,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-2007",
+    "vendor_id": "vendor-002",
+    "site": "Cheyenne WY",
+    "days_ago": 88,
+    "incident_type": "Network equipment failure",
+    "ack_minutes": 31,
+    "completion_hours": 11.2,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-2008",
+    "vendor_id": "vendor-002",
+    "site": "Cheyenne WY",
+    "days_ago": 38,
+    "incident_type": "Switch fault",
+    "ack_minutes": 23,
+    "completion_hours": 13.4,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-2009",
+    "vendor_id": "vendor-002",
+    "site": "Cheyenne WY",
+    "days_ago": 65,
+    "incident_type": "Network equipment failure",
+    "ack_minutes": 36,
+    "completion_hours": 15.7,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-2010",
+    "vendor_id": "vendor-002",
+    "site": "Cheyenne WY",
+    "days_ago": 48,
+    "incident_type": "Routing misconfiguration",
+    "ack_minutes": 29,
+    "completion_hours": 6.2,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-2011",
+    "vendor_id": "vendor-002",
+    "site": "San Antonio TX",
+    "days_ago": 63,
+    "incident_type": "Network equipment failure",
+    "ack_minutes": 22,
+    "completion_hours": 8.1,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-2012",
+    "vendor_id": "vendor-002",
+    "site": "San Antonio TX",
+    "days_ago": 31,
+    "incident_type": "Network equipment failure",
+    "ack_minutes": 41,
+    "completion_hours": 13.6,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-2013",
+    "vendor_id": "vendor-002",
+    "site": "Cheyenne WY",
+    "days_ago": 69,
+    "incident_type": "Routing misconfiguration",
+    "ack_minutes": 49,
+    "completion_hours": 16.7,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-2014",
+    "vendor_id": "vendor-002",
+    "site": "San Antonio TX",
+    "days_ago": 28,
+    "incident_type": "Routing misconfiguration",
+    "ack_minutes": 22,
+    "completion_hours": 8.1,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-2015",
+    "vendor_id": "vendor-002",
+    "site": "San Antonio TX",
+    "days_ago": 57,
+    "incident_type": "Switch fault",
+    "ack_minutes": 26,
+    "completion_hours": 15.5,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-2016",
+    "vendor_id": "vendor-002",
+    "site": "Cheyenne WY",
+    "days_ago": 76,
+    "incident_type": "Routing misconfiguration",
+    "ack_minutes": 40,
+    "completion_hours": 19.9,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-2017",
+    "vendor_id": "vendor-002",
+    "site": "Cheyenne WY",
+    "days_ago": 43,
+    "incident_type": "Network equipment failure",
+    "ack_minutes": null,
+    "completion_hours": 9.7,
+    "sla_met": false,
+    "note": "Acknowledgement time not captured in dispatch system"
+  },
+  {
+    "dispatch_id": "DSP-2018",
+    "vendor_id": "vendor-002",
+    "site": "San Antonio TX",
+    "days_ago": 86,
+    "incident_type": "Switch fault",
+    "ack_minutes": 36,
+    "completion_hours": 15.5,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-2019",
+    "vendor_id": "vendor-002",
+    "site": "San Antonio TX",
+    "days_ago": 32,
+    "incident_type": "Switch fault",
+    "ack_minutes": null,
+    "completion_hours": 10.2,
+    "sla_met": false,
+    "note": "Acknowledgement time not captured in dispatch system"
+  },
+  {
+    "dispatch_id": "DSP-2020",
+    "vendor_id": "vendor-002",
+    "site": "San Antonio TX",
+    "days_ago": 46,
+    "incident_type": "Switch fault",
+    "ack_minutes": 22,
+    "completion_hours": 4.4,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-3008",
+    "vendor_id": "vendor-003",
+    "site": "Quincy WA",
+    "days_ago": 8,
+    "incident_type": "Cable damage",
+    "ack_minutes": 17,
+    "completion_hours": 6.8,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-3009",
+    "vendor_id": "vendor-003",
+    "site": "Quincy WA",
+    "days_ago": 25,
+    "incident_type": "Cable damage",
+    "ack_minutes": 9,
+    "completion_hours": 6.8,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-3010",
+    "vendor_id": "vendor-003",
+    "site": "Quincy WA",
+    "days_ago": 57,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 17,
+    "completion_hours": 6.8,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-3011",
+    "vendor_id": "vendor-003",
+    "site": "Quincy WA",
+    "days_ago": 31,
+    "incident_type": "Splice failure",
+    "ack_minutes": 39,
+    "completion_hours": 7.8,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-3012",
+    "vendor_id": "vendor-003",
+    "site": "Quincy WA",
+    "days_ago": 49,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 33,
+    "completion_hours": 14.0,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-3013",
+    "vendor_id": "vendor-003",
+    "site": "Phoenix AZ",
+    "days_ago": 90,
+    "incident_type": "Cable damage",
+    "ack_minutes": null,
+    "completion_hours": 7.8,
+    "sla_met": false,
+    "note": "Acknowledgement time not captured in dispatch system"
+  },
+  {
+    "dispatch_id": "DSP-3014",
+    "vendor_id": "vendor-003",
+    "site": "Phoenix AZ",
+    "days_ago": 28,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 14,
+    "completion_hours": 6.5,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-3015",
+    "vendor_id": "vendor-003",
+    "site": "Quincy WA",
+    "days_ago": 7,
+    "incident_type": "Cable damage",
+    "ack_minutes": 10,
+    "completion_hours": 11.1,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-3016",
+    "vendor_id": "vendor-003",
+    "site": "Quincy WA",
+    "days_ago": 24,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 16,
+    "completion_hours": 8.3,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-3017",
+    "vendor_id": "vendor-003",
+    "site": "Quincy WA",
+    "days_ago": 75,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 16,
+    "completion_hours": 6.2,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-3018",
+    "vendor_id": "vendor-003",
+    "site": "Phoenix AZ",
+    "days_ago": 34,
+    "incident_type": "Splice failure",
+    "ack_minutes": 24,
+    "completion_hours": 8.5,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-3019",
+    "vendor_id": "vendor-003",
+    "site": "Phoenix AZ",
+    "days_ago": 59,
+    "incident_type": "Optical amplifier fault",
+    "ack_minutes": 17,
+    "completion_hours": 5.5,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-3020",
+    "vendor_id": "vendor-003",
+    "site": "Quincy WA",
+    "days_ago": 10,
+    "incident_type": "Splice failure",
+    "ack_minutes": 17,
+    "completion_hours": 6.8,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-4006",
+    "vendor_id": "vendor-004",
+    "site": "Boydton VA",
+    "days_ago": 32,
+    "incident_type": "Generator fault",
+    "ack_minutes": 106,
+    "completion_hours": 68.0,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-4007",
+    "vendor_id": "vendor-004",
+    "site": "Boydton VA",
+    "days_ago": 86,
+    "incident_type": "Cooling unit trip",
+    "ack_minutes": 31,
+    "completion_hours": 37.2,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-4008",
+    "vendor_id": "vendor-004",
+    "site": "Atlanta GA",
+    "days_ago": 15,
+    "incident_type": "Power failure",
+    "ack_minutes": 115,
+    "completion_hours": 40.6,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-4009",
+    "vendor_id": "vendor-004",
+    "site": "Atlanta GA",
+    "days_ago": 27,
+    "incident_type": "Airflow obstruction",
+    "ack_minutes": 72,
+    "completion_hours": 29.0,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-4010",
+    "vendor_id": "vendor-004",
+    "site": "Boydton VA",
+    "days_ago": 12,
+    "incident_type": "Airflow obstruction",
+    "ack_minutes": 88,
+    "completion_hours": 56.7,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-4011",
+    "vendor_id": "vendor-004",
+    "site": "Atlanta GA",
+    "days_ago": 21,
+    "incident_type": "Airflow obstruction",
+    "ack_minutes": 59,
+    "completion_hours": 59.8,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-4012",
+    "vendor_id": "vendor-004",
+    "site": "Boydton VA",
+    "days_ago": 70,
+    "incident_type": "Power failure",
+    "ack_minutes": 72,
+    "completion_hours": 22.3,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-4013",
+    "vendor_id": "vendor-004",
+    "site": "Boydton VA",
+    "days_ago": 6,
+    "incident_type": "Generator fault",
+    "ack_minutes": 43,
+    "completion_hours": 30.6,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-4014",
+    "vendor_id": "vendor-004",
+    "site": "Boydton VA",
+    "days_ago": 46,
+    "incident_type": "Cooling failure",
+    "ack_minutes": 92,
+    "completion_hours": 27.7,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-4015",
+    "vendor_id": "vendor-004",
+    "site": "Atlanta GA",
+    "days_ago": 80,
+    "incident_type": "Airflow obstruction",
+    "ack_minutes": 167,
+    "completion_hours": 82.3,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-4016",
+    "vendor_id": "vendor-004",
+    "site": "Boydton VA",
+    "days_ago": 53,
+    "incident_type": "Power failure",
+    "ack_minutes": 154,
+    "completion_hours": 84.8,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-4017",
+    "vendor_id": "vendor-004",
+    "site": "Boydton VA",
+    "days_ago": 35,
+    "incident_type": "Cooling failure",
+    "ack_minutes": 120,
+    "completion_hours": 42.6,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-4018",
+    "vendor_id": "vendor-004",
+    "site": "Boydton VA",
+    "days_ago": 26,
+    "incident_type": "Cooling unit trip",
+    "ack_minutes": 148,
+    "completion_hours": 42.7,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-4019",
+    "vendor_id": "vendor-004",
+    "site": "Boydton VA",
+    "days_ago": 4,
+    "incident_type": "Airflow obstruction",
+    "ack_minutes": 128,
+    "completion_hours": 64.4,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-4020",
+    "vendor_id": "vendor-004",
+    "site": "Atlanta GA",
+    "days_ago": 45,
+    "incident_type": "Airflow obstruction",
+    "ack_minutes": null,
+    "completion_hours": 17.9,
+    "sla_met": false,
+    "note": "Acknowledgement time not captured in dispatch system"
+  },
+  {
+    "dispatch_id": "DSP-4021",
+    "vendor_id": "vendor-004",
+    "site": "Atlanta GA",
+    "days_ago": 4,
+    "incident_type": "Power failure",
+    "ack_minutes": 113,
+    "completion_hours": 59.8,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-4022",
+    "vendor_id": "vendor-004",
+    "site": "Boydton VA",
+    "days_ago": 14,
+    "incident_type": "Thermal event",
+    "ack_minutes": 94,
+    "completion_hours": 25.5,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-4023",
+    "vendor_id": "vendor-004",
+    "site": "Boydton VA",
+    "days_ago": 50,
+    "incident_type": "Thermal event",
+    "ack_minutes": 141,
+    "completion_hours": 52.2,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-4024",
+    "vendor_id": "vendor-004",
+    "site": "Boydton VA",
+    "days_ago": 47,
+    "incident_type": "UPS failure",
+    "ack_minutes": 127,
+    "completion_hours": 72.8,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-4025",
+    "vendor_id": "vendor-004",
+    "site": "Boydton VA",
+    "days_ago": 39,
+    "incident_type": "Thermal event",
+    "ack_minutes": null,
+    "completion_hours": 43.5,
+    "sla_met": false,
+    "note": "Acknowledgement time not captured in dispatch system"
+  },
+  {
+    "dispatch_id": "DSP-4026",
+    "vendor_id": "vendor-004",
+    "site": "Atlanta GA",
+    "days_ago": 42,
+    "incident_type": "UPS failure",
+    "ack_minutes": 100,
+    "completion_hours": 30.2,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-4027",
+    "vendor_id": "vendor-004",
+    "site": "Atlanta GA",
+    "days_ago": 87,
+    "incident_type": "Airflow obstruction",
+    "ack_minutes": 159,
+    "completion_hours": 37.1,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-4028",
+    "vendor_id": "vendor-004",
+    "site": "Boydton VA",
+    "days_ago": 39,
+    "incident_type": "Generator fault",
+    "ack_minutes": 133,
+    "completion_hours": 79.0,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-4029",
+    "vendor_id": "vendor-004",
+    "site": "Atlanta GA",
+    "days_ago": 57,
+    "incident_type": "Airflow obstruction",
+    "ack_minutes": 126,
+    "completion_hours": 68.9,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-4030",
+    "vendor_id": "vendor-004",
+    "site": "Boydton VA",
+    "days_ago": 85,
+    "incident_type": "Power failure",
+    "ack_minutes": 104,
+    "completion_hours": 74.6,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-5003",
+    "vendor_id": "vendor-005",
+    "site": "Cheyenne WY",
+    "days_ago": 87,
+    "incident_type": "Backhaul failure",
+    "ack_minutes": 28,
+    "completion_hours": 9.3,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-5004",
+    "vendor_id": "vendor-005",
+    "site": "Cheyenne WY",
+    "days_ago": 61,
+    "incident_type": "Tower equipment fault",
+    "ack_minutes": 28,
+    "completion_hours": 9.3,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-5005",
+    "vendor_id": "vendor-005",
+    "site": "Cheyenne WY",
+    "days_ago": 90,
+    "incident_type": "Backhaul failure",
+    "ack_minutes": null,
+    "completion_hours": 8.0,
+    "sla_met": false,
+    "note": "Acknowledgement time not captured in dispatch system"
+  },
+  {
+    "dispatch_id": "DSP-5006",
+    "vendor_id": "vendor-005",
+    "site": "Cheyenne WY",
+    "days_ago": 14,
+    "incident_type": "Backhaul failure",
+    "ack_minutes": 45,
+    "completion_hours": 17.4,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-5007",
+    "vendor_id": "vendor-005",
+    "site": "Cheyenne WY",
+    "days_ago": 16,
+    "incident_type": "Backhaul failure",
+    "ack_minutes": 28,
+    "completion_hours": 9.3,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-5008",
+    "vendor_id": "vendor-005",
+    "site": "Cheyenne WY",
+    "days_ago": 57,
+    "incident_type": "Tower equipment fault",
+    "ack_minutes": 55,
+    "completion_hours": 20.2,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-5009",
+    "vendor_id": "vendor-005",
+    "site": "Cheyenne WY",
+    "days_ago": 21,
+    "incident_type": "Tower equipment fault",
+    "ack_minutes": 19,
+    "completion_hours": 19.3,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-5010",
+    "vendor_id": "vendor-005",
+    "site": "Cheyenne WY",
+    "days_ago": 67,
+    "incident_type": "Backhaul failure",
+    "ack_minutes": 33,
+    "completion_hours": 12.3,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-5011",
+    "vendor_id": "vendor-005",
+    "site": "Cheyenne WY",
+    "days_ago": 43,
+    "incident_type": "Backhaul failure",
+    "ack_minutes": 28,
+    "completion_hours": 9.3,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-5012",
+    "vendor_id": "vendor-005",
+    "site": "Cheyenne WY",
+    "days_ago": 89,
+    "incident_type": "Microwave link degradation",
+    "ack_minutes": 28,
+    "completion_hours": 9.3,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-5013",
+    "vendor_id": "vendor-005",
+    "site": "Cheyenne WY",
+    "days_ago": 54,
+    "incident_type": "Microwave link degradation",
+    "ack_minutes": 28,
+    "completion_hours": 9.3,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-5014",
+    "vendor_id": "vendor-005",
+    "site": "Cheyenne WY",
+    "days_ago": 74,
+    "incident_type": "Backhaul failure",
+    "ack_minutes": 58,
+    "completion_hours": 2.1,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-5015",
+    "vendor_id": "vendor-005",
+    "site": "Cheyenne WY",
+    "days_ago": 69,
+    "incident_type": "Tower equipment fault",
+    "ack_minutes": 28,
+    "completion_hours": 9.3,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-5016",
+    "vendor_id": "vendor-005",
+    "site": "Cheyenne WY",
+    "days_ago": 29,
+    "incident_type": "Backhaul failure",
+    "ack_minutes": 22,
+    "completion_hours": 14.1,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-5017",
+    "vendor_id": "vendor-005",
+    "site": "Cheyenne WY",
+    "days_ago": 22,
+    "incident_type": "Backhaul failure",
+    "ack_minutes": 45,
+    "completion_hours": 29.1,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-5018",
+    "vendor_id": "vendor-005",
+    "site": "Cheyenne WY",
+    "days_ago": 11,
+    "incident_type": "Tower equipment fault",
+    "ack_minutes": 27,
+    "completion_hours": 5.3,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-5019",
+    "vendor_id": "vendor-005",
+    "site": "Cheyenne WY",
+    "days_ago": 28,
+    "incident_type": "Backhaul failure",
+    "ack_minutes": 28,
+    "completion_hours": 7.9,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-5020",
+    "vendor_id": "vendor-005",
+    "site": "Cheyenne WY",
+    "days_ago": 33,
+    "incident_type": "Microwave link degradation",
+    "ack_minutes": 28,
+    "completion_hours": 4.5,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-6005",
+    "vendor_id": "vendor-006",
+    "site": "Phoenix AZ",
+    "days_ago": 29,
+    "incident_type": "Outside plant damage",
+    "ack_minutes": 16,
+    "completion_hours": 6.4,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-6006",
+    "vendor_id": "vendor-006",
+    "site": "San Antonio TX",
+    "days_ago": 32,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 16,
+    "completion_hours": 6.4,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-6007",
+    "vendor_id": "vendor-006",
+    "site": "Phoenix AZ",
+    "days_ago": 86,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 12,
+    "completion_hours": 6.2,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-6008",
+    "vendor_id": "vendor-006",
+    "site": "Phoenix AZ",
+    "days_ago": 22,
+    "incident_type": "Outside plant damage",
+    "ack_minutes": 23,
+    "completion_hours": 6.9,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-6009",
+    "vendor_id": "vendor-006",
+    "site": "Phoenix AZ",
+    "days_ago": 14,
+    "incident_type": "Outside plant damage",
+    "ack_minutes": 16,
+    "completion_hours": 12.9,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-6010",
+    "vendor_id": "vendor-006",
+    "site": "Phoenix AZ",
+    "days_ago": 26,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 26,
+    "completion_hours": 6.0,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-6011",
+    "vendor_id": "vendor-006",
+    "site": "Phoenix AZ",
+    "days_ago": 88,
+    "incident_type": "Outside plant damage",
+    "ack_minutes": 16,
+    "completion_hours": 12.2,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-6012",
+    "vendor_id": "vendor-006",
+    "site": "Phoenix AZ",
+    "days_ago": 85,
+    "incident_type": "Cable splice failure",
+    "ack_minutes": 9,
+    "completion_hours": 6.4,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-6013",
+    "vendor_id": "vendor-006",
+    "site": "Phoenix AZ",
+    "days_ago": 63,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 16,
+    "completion_hours": 5.8,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-6014",
+    "vendor_id": "vendor-006",
+    "site": "Phoenix AZ",
+    "days_ago": 20,
+    "incident_type": "Cable splice failure",
+    "ack_minutes": 28,
+    "completion_hours": 12.0,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-6015",
+    "vendor_id": "vendor-006",
+    "site": "Phoenix AZ",
+    "days_ago": 60,
+    "incident_type": "Cable splice failure",
+    "ack_minutes": 33,
+    "completion_hours": 12.2,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-6016",
+    "vendor_id": "vendor-006",
+    "site": "San Antonio TX",
+    "days_ago": 36,
+    "incident_type": "Cable splice failure",
+    "ack_minutes": 12,
+    "completion_hours": 6.4,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-6017",
+    "vendor_id": "vendor-006",
+    "site": "Phoenix AZ",
+    "days_ago": 44,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 33,
+    "completion_hours": 8.0,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-6018",
+    "vendor_id": "vendor-006",
+    "site": "Phoenix AZ",
+    "days_ago": 44,
+    "incident_type": "Cable splice failure",
+    "ack_minutes": 16,
+    "completion_hours": 6.4,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-6019",
+    "vendor_id": "vendor-006",
+    "site": "San Antonio TX",
+    "days_ago": 67,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 13,
+    "completion_hours": 6.4,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-6020",
+    "vendor_id": "vendor-006",
+    "site": "San Antonio TX",
+    "days_ago": 89,
+    "incident_type": "Cable splice failure",
+    "ack_minutes": 16,
+    "completion_hours": 6.1,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-7009",
+    "vendor_id": "vendor-007",
+    "site": "Atlanta GA",
+    "days_ago": 38,
+    "incident_type": "Power delivery fault",
+    "ack_minutes": 11,
+    "completion_hours": 7.4,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-7010",
+    "vendor_id": "vendor-007",
+    "site": "Boydton VA",
+    "days_ago": 55,
+    "incident_type": "Generator alarm",
+    "ack_minutes": 11,
+    "completion_hours": 5.2,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-7011",
+    "vendor_id": "vendor-007",
+    "site": "Atlanta GA",
+    "days_ago": 16,
+    "incident_type": "Power delivery fault",
+    "ack_minutes": 11,
+    "completion_hours": 5.2,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-7012",
+    "vendor_id": "vendor-007",
+    "site": "Atlanta GA",
+    "days_ago": 25,
+    "incident_type": "Power delivery fault",
+    "ack_minutes": 27,
+    "completion_hours": 9.0,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-7013",
+    "vendor_id": "vendor-007",
+    "site": "Boydton VA",
+    "days_ago": 13,
+    "incident_type": "Power delivery fault",
+    "ack_minutes": 11,
+    "completion_hours": 8.4,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-7014",
+    "vendor_id": "vendor-007",
+    "site": "Atlanta GA",
+    "days_ago": 36,
+    "incident_type": "Cooling system failure",
+    "ack_minutes": 23,
+    "completion_hours": 12.6,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-7015",
+    "vendor_id": "vendor-007",
+    "site": "Boydton VA",
+    "days_ago": 14,
+    "incident_type": "Cooling system failure",
+    "ack_minutes": 11,
+    "completion_hours": 4.5,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-7016",
+    "vendor_id": "vendor-007",
+    "site": "Atlanta GA",
+    "days_ago": 7,
+    "incident_type": "Generator alarm",
+    "ack_minutes": 11,
+    "completion_hours": 5.5,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-7017",
+    "vendor_id": "vendor-007",
+    "site": "Boydton VA",
+    "days_ago": 63,
+    "incident_type": "Cooling system failure",
+    "ack_minutes": 14,
+    "completion_hours": 5.3,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-7018",
+    "vendor_id": "vendor-007",
+    "site": "Boydton VA",
+    "days_ago": 11,
+    "incident_type": "Power delivery fault",
+    "ack_minutes": 13,
+    "completion_hours": 12.6,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-7019",
+    "vendor_id": "vendor-007",
+    "site": "Atlanta GA",
+    "days_ago": 67,
+    "incident_type": "CRAC unit failure",
+    "ack_minutes": 24,
+    "completion_hours": 6.2,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-7020",
+    "vendor_id": "vendor-007",
+    "site": "Boydton VA",
+    "days_ago": 73,
+    "incident_type": "Cooling system failure",
+    "ack_minutes": 19,
+    "completion_hours": 5.6,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-8009",
+    "vendor_id": "vendor-008",
+    "site": "San Antonio TX",
+    "days_ago": 34,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 11,
+    "completion_hours": 5.5,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-8010",
+    "vendor_id": "vendor-008",
+    "site": "San Antonio TX",
+    "days_ago": 53,
+    "incident_type": "Router fault",
+    "ack_minutes": 14,
+    "completion_hours": 5.5,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-8011",
+    "vendor_id": "vendor-008",
+    "site": "Cheyenne WY",
+    "days_ago": 37,
+    "incident_type": "Router fault",
+    "ack_minutes": 11,
+    "completion_hours": 5.5,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-8012",
+    "vendor_id": "vendor-008",
+    "site": "San Antonio TX",
+    "days_ago": 55,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 14,
+    "completion_hours": 3.7,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-8013",
+    "vendor_id": "vendor-008",
+    "site": "San Antonio TX",
+    "days_ago": 10,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 19,
+    "completion_hours": 10.4,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-8014",
+    "vendor_id": "vendor-008",
+    "site": "Cheyenne WY",
+    "days_ago": 57,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 28,
+    "completion_hours": 6.7,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-8015",
+    "vendor_id": "vendor-008",
+    "site": "Cheyenne WY",
+    "days_ago": 57,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 14,
+    "completion_hours": 3.1,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-8016",
+    "vendor_id": "vendor-008",
+    "site": "Cheyenne WY",
+    "days_ago": 4,
+    "incident_type": "Fiber cut",
+    "ack_minutes": 13,
+    "completion_hours": 9.7,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-8017",
+    "vendor_id": "vendor-008",
+    "site": "San Antonio TX",
+    "days_ago": 87,
+    "incident_type": "Cable degradation",
+    "ack_minutes": 33,
+    "completion_hours": 4.9,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-8018",
+    "vendor_id": "vendor-008",
+    "site": "Cheyenne WY",
+    "days_ago": 36,
+    "incident_type": "Network equipment failure",
+    "ack_minutes": 16,
+    "completion_hours": 12.0,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-8019",
+    "vendor_id": "vendor-008",
+    "site": "Cheyenne WY",
+    "days_ago": 45,
+    "incident_type": "Router fault",
+    "ack_minutes": 22,
+    "completion_hours": 7.0,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-8020",
+    "vendor_id": "vendor-008",
+    "site": "Cheyenne WY",
+    "days_ago": 37,
+    "incident_type": "Router fault",
+    "ack_minutes": 14,
+    "completion_hours": 5.5,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-9003",
+    "vendor_id": "vendor-009",
+    "site": "Phoenix AZ",
+    "days_ago": 33,
+    "incident_type": "Routing fault",
+    "ack_minutes": 24,
+    "completion_hours": 10.2,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-9004",
+    "vendor_id": "vendor-009",
+    "site": "Phoenix AZ",
+    "days_ago": 85,
+    "incident_type": "Link degradation",
+    "ack_minutes": 66,
+    "completion_hours": 13.7,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-9005",
+    "vendor_id": "vendor-009",
+    "site": "Phoenix AZ",
+    "days_ago": 7,
+    "incident_type": "Sensor alert",
+    "ack_minutes": 54,
+    "completion_hours": 16.5,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-9006",
+    "vendor_id": "vendor-009",
+    "site": "Phoenix AZ",
+    "days_ago": 16,
+    "incident_type": "Network monitoring failure",
+    "ack_minutes": 57,
+    "completion_hours": 24.4,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-9007",
+    "vendor_id": "vendor-009",
+    "site": "Phoenix AZ",
+    "days_ago": 71,
+    "incident_type": "Link degradation",
+    "ack_minutes": 30,
+    "completion_hours": 10.2,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-9008",
+    "vendor_id": "vendor-009",
+    "site": "Phoenix AZ",
+    "days_ago": 16,
+    "incident_type": "Sensor alert",
+    "ack_minutes": 75,
+    "completion_hours": 7.8,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-9009",
+    "vendor_id": "vendor-009",
+    "site": "Phoenix AZ",
+    "days_ago": 61,
+    "incident_type": "Sensor alert",
+    "ack_minutes": 30,
+    "completion_hours": 9.8,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-9010",
+    "vendor_id": "vendor-009",
+    "site": "Phoenix AZ",
+    "days_ago": 9,
+    "incident_type": "Routing fault",
+    "ack_minutes": 30,
+    "completion_hours": 10.2,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-9011",
+    "vendor_id": "vendor-009",
+    "site": "Phoenix AZ",
+    "days_ago": 1,
+    "incident_type": "Routing fault",
+    "ack_minutes": 14,
+    "completion_hours": 10.2,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-9012",
+    "vendor_id": "vendor-009",
+    "site": "Phoenix AZ",
+    "days_ago": 20,
+    "incident_type": "Link degradation",
+    "ack_minutes": 19,
+    "completion_hours": 11.8,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-9013",
+    "vendor_id": "vendor-009",
+    "site": "Phoenix AZ",
+    "days_ago": 42,
+    "incident_type": "Sensor alert",
+    "ack_minutes": 45,
+    "completion_hours": 20.9,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-9014",
+    "vendor_id": "vendor-009",
+    "site": "Phoenix AZ",
+    "days_ago": 6,
+    "incident_type": "Routing fault",
+    "ack_minutes": 46,
+    "completion_hours": 16.5,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-9015",
+    "vendor_id": "vendor-009",
+    "site": "Phoenix AZ",
+    "days_ago": 64,
+    "incident_type": "Network monitoring failure",
+    "ack_minutes": 19,
+    "completion_hours": 10.2,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-9016",
+    "vendor_id": "vendor-009",
+    "site": "Phoenix AZ",
+    "days_ago": 57,
+    "incident_type": "Network monitoring failure",
+    "ack_minutes": null,
+    "completion_hours": 19.4,
+    "sla_met": false,
+    "note": "Acknowledgement time not captured in dispatch system"
+  },
+  {
+    "dispatch_id": "DSP-9017",
+    "vendor_id": "vendor-009",
+    "site": "Phoenix AZ",
+    "days_ago": 2,
+    "incident_type": "Sensor alert",
+    "ack_minutes": 29,
+    "completion_hours": 21.1,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-9018",
+    "vendor_id": "vendor-009",
+    "site": "Phoenix AZ",
+    "days_ago": 44,
+    "incident_type": "Link degradation",
+    "ack_minutes": 24,
+    "completion_hours": 5.7,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-9019",
+    "vendor_id": "vendor-009",
+    "site": "Phoenix AZ",
+    "days_ago": 41,
+    "incident_type": "Link degradation",
+    "ack_minutes": 52,
+    "completion_hours": 15.7,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-9020",
+    "vendor_id": "vendor-009",
+    "site": "Phoenix AZ",
+    "days_ago": 30,
+    "incident_type": "Network monitoring failure",
+    "ack_minutes": 42,
+    "completion_hours": 17.8,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-10009",
+    "vendor_id": "vendor-010",
+    "site": "Atlanta GA",
+    "days_ago": 22,
+    "incident_type": "Cooling tower issue",
+    "ack_minutes": 36,
+    "completion_hours": 9.9,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-10010",
+    "vendor_id": "vendor-010",
+    "site": "Atlanta GA",
+    "days_ago": 56,
+    "incident_type": "Mechanical pump fault",
+    "ack_minutes": 20,
+    "completion_hours": 6.4,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-10011",
+    "vendor_id": "vendor-010",
+    "site": "Boydton VA",
+    "days_ago": 22,
+    "incident_type": "Mechanical pump fault",
+    "ack_minutes": 52,
+    "completion_hours": 13.9,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-10012",
+    "vendor_id": "vendor-010",
+    "site": "Boydton VA",
+    "days_ago": 30,
+    "incident_type": "Chiller fault",
+    "ack_minutes": 20,
+    "completion_hours": 5.4,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-10013",
+    "vendor_id": "vendor-010",
+    "site": "Atlanta GA",
+    "days_ago": 37,
+    "incident_type": "Mechanical pump fault",
+    "ack_minutes": 55,
+    "completion_hours": 14.3,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-10014",
+    "vendor_id": "vendor-010",
+    "site": "Atlanta GA",
+    "days_ago": 89,
+    "incident_type": "Cooling tower issue",
+    "ack_minutes": 19,
+    "completion_hours": 6.4,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-10015",
+    "vendor_id": "vendor-010",
+    "site": "Atlanta GA",
+    "days_ago": 14,
+    "incident_type": "Mechanical pump fault",
+    "ack_minutes": 26,
+    "completion_hours": 12.7,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-10016",
+    "vendor_id": "vendor-010",
+    "site": "Boydton VA",
+    "days_ago": 85,
+    "incident_type": "Chiller fault",
+    "ack_minutes": 31,
+    "completion_hours": 15.0,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-10017",
+    "vendor_id": "vendor-010",
+    "site": "Boydton VA",
+    "days_ago": 78,
+    "incident_type": "Chiller fault",
+    "ack_minutes": 44,
+    "completion_hours": 3.9,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-10018",
+    "vendor_id": "vendor-010",
+    "site": "Atlanta GA",
+    "days_ago": 29,
+    "incident_type": "Mechanical pump fault",
+    "ack_minutes": 17,
+    "completion_hours": 4.9,
+    "sla_met": true
+  },
+  {
+    "dispatch_id": "DSP-10019",
+    "vendor_id": "vendor-010",
+    "site": "Boydton VA",
+    "days_ago": 81,
+    "incident_type": "HVAC failure",
+    "ack_minutes": 45,
+    "completion_hours": 7.6,
+    "sla_met": false
+  },
+  {
+    "dispatch_id": "DSP-10020",
+    "vendor_id": "vendor-010",
+    "site": "Atlanta GA",
+    "days_ago": 17,
+    "incident_type": "HVAC failure",
+    "ack_minutes": 20,
+    "completion_hours": 6.3,
+    "sla_met": true
   }
 ]
