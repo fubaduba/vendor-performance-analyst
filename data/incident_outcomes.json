@@ -237,7 +237,11 @@
     "resolution_hours": 7,
     "repeat_within_90d": true,
     "customer_impact": "high",
-    "outcome": "Resolved quickly but repeat failure caused service instability"
+    "outcome": "Resolved quickly but repeat failure caused service instability",
+    "related_incident_ids": [
+      "INC-1402",
+      "INC-1547"
+    ]
   },
   {
     "incident_id": "INC-1402",
@@ -247,7 +251,11 @@
     "resolution_hours": 8,
     "repeat_within_90d": true,
     "customer_impact": "high",
-    "outcome": "Second recurrence inside 30 days despite SLA-compliant closure"
+    "outcome": "Second recurrence inside 30 days despite SLA-compliant closure",
+    "related_incident_ids": [
+      "INC-1401",
+      "INC-1547"
+    ]
   },
   {
     "incident_id": "INC-1403",
@@ -305,7 +313,11 @@
     "resolution_hours": 39.7,
     "repeat_within_90d": true,
     "customer_impact": "high",
-    "outcome": "Repeat power/cooling event in cluster \u2014 third occurrence within 19 days at Boydton VA"
+    "outcome": "Repeat power/cooling event in cluster \u2014 third occurrence within 19 days at Boydton VA",
+    "related_incident_ids": [
+      "INC-1500",
+      "INC-1501"
+    ]
   },
   {
     "incident_id": "INC-1503",
@@ -329,7 +341,11 @@
     "resolution_hours": 6.9,
     "repeat_within_90d": true,
     "customer_impact": "moderate",
-    "outcome": "Recurring fiber fault at Quincy WA; pattern suggests infrastructure issue"
+    "outcome": "Recurring fiber fault at Quincy WA; pattern suggests infrastructure issue",
+    "related_incident_ids": [
+      "INC-1503",
+      "INC-1505"
+    ]
   },
   {
     "incident_id": "INC-1505",
@@ -339,7 +355,11 @@
     "resolution_hours": 8.0,
     "repeat_within_90d": true,
     "customer_impact": "moderate",
-    "outcome": "Recurring fiber fault at Quincy WA; pattern suggests infrastructure issue"
+    "outcome": "Recurring fiber fault at Quincy WA; pattern suggests infrastructure issue",
+    "related_incident_ids": [
+      "INC-1503",
+      "INC-1504"
+    ]
   },
   {
     "incident_id": "INC-1506",
@@ -349,7 +369,11 @@
     "resolution_hours": 7.5,
     "repeat_within_90d": true,
     "customer_impact": "moderate",
-    "outcome": "Cooling cluster recurrence at Atlanta GA \u2014 fourth event in 24-day window"
+    "outcome": "Cooling cluster recurrence at Atlanta GA \u2014 fourth event in 24-day window",
+    "related_incident_ids": [
+      "INC-1507",
+      "INC-1508"
+    ]
   },
   {
     "incident_id": "INC-1507",
@@ -359,7 +383,11 @@
     "resolution_hours": 6.5,
     "repeat_within_90d": true,
     "customer_impact": "moderate",
-    "outcome": "Cooling cluster recurrence at Atlanta GA \u2014 fourth event in 24-day window"
+    "outcome": "Cooling cluster recurrence at Atlanta GA \u2014 fourth event in 24-day window",
+    "related_incident_ids": [
+      "INC-1506",
+      "INC-1508"
+    ]
   },
   {
     "incident_id": "INC-1508",
@@ -763,7 +791,11 @@
     "resolution_hours": 18.1,
     "repeat_within_90d": false,
     "customer_impact": "Severity 3",
-    "outcome": "Downtime: 0.75 hours"
+    "outcome": "Downtime: 0.75 hours",
+    "related_incident_ids": [
+      "INC-1401",
+      "INC-1402"
+    ]
   },
   {
     "incident_id": "INC-1548",
@@ -1014,5 +1046,55 @@
     "repeat_within_90d": false,
     "customer_impact": "high",
     "outcome": "Brief disruption (~15 min)"
+  },
+  {
+    "incident_id": "INC-1580",
+    "vendor_id": "vendor-002",
+    "days_ago": 55,
+    "type": "Network degradation",
+    "resolution_hours": 3.5,
+    "repeat_within_90d": false,
+    "customer_impact": "moderate",
+    "outcome": "Service degraded for 210 minutes before full restoration"
+  },
+  {
+    "incident_id": "INC-1581",
+    "vendor_id": "vendor-005",
+    "days_ago": 37,
+    "type": "Fiber pull delay",
+    "resolution_hours": 6,
+    "repeat_within_90d": false,
+    "customer_impact": "minor",
+    "outcome": "Downtime window: 1.5h; single customer segment affected"
+  },
+  {
+    "incident_id": "INC-1582",
+    "vendor_id": "vendor-006",
+    "days_ago": 42,
+    "type": "Splice repair",
+    "resolution_hours": 4,
+    "repeat_within_90d": false,
+    "customer_impact": "minor",
+    "outcome": "Brief outage (~45 min) during planned maintenance window"
+  },
+  {
+    "incident_id": "INC-1583",
+    "vendor_id": "vendor-009",
+    "days_ago": 33,
+    "type": "NOC alert handling",
+    "resolution_hours": 5,
+    "repeat_within_90d": false,
+    "customer_impact": "moderate",
+    "outcome": "Packet loss observed for roughly 2 hours; cleared by NOC restart"
+  },
+  {
+    "incident_id": "INC-1584",
+    "vendor_id": "vendor-010",
+    "days_ago": 28,
+    "type": "HVAC setpoint fault",
+    "resolution_hours": 3,
+    "repeat_within_90d": true,
+    "customer_impact": "minor",
+    "outcome": "Temperature excursion of ~90 minutes; automated setpoint correction applied"
   }
 ]
