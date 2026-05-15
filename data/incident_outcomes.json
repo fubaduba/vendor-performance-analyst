@@ -268,5 +268,751 @@
     "repeat_within_90d": true,
     "customer_impact": "high",
     "outcome": "Repeated alarm pattern continued after prior fix"
+  },
+  {
+    "incident_id": "INC-1500",
+    "vendor_id": "vendor-004",
+    "days_ago": 5,
+    "type": "Power failure",
+    "resolution_hours": 30.4,
+    "repeat_within_90d": true,
+    "customer_impact": "high",
+    "outcome": "Repeat power/cooling event in cluster \u2014 third occurrence within 19 days at Boydton VA",
+    "related_incident_ids": [
+      "INC-1501",
+      "INC-1502"
+    ]
+  },
+  {
+    "incident_id": "INC-1501",
+    "vendor_id": "vendor-004",
+    "days_ago": 12,
+    "type": "Generator fault",
+    "resolution_hours": 25.0,
+    "repeat_within_90d": true,
+    "customer_impact": "high",
+    "outcome": "Repeat power/cooling event in cluster \u2014 third occurrence within 19 days at Boydton VA",
+    "related_incident_ids": [
+      "INC-1500",
+      "INC-1502"
+    ]
+  },
+  {
+    "incident_id": "INC-1502",
+    "vendor_id": "vendor-004",
+    "days_ago": 19,
+    "type": "UPS failure",
+    "resolution_hours": 39.7,
+    "repeat_within_90d": true,
+    "customer_impact": "high",
+    "outcome": "Repeat power/cooling event in cluster \u2014 third occurrence within 19 days at Boydton VA"
+  },
+  {
+    "incident_id": "INC-1503",
+    "vendor_id": "vendor-003",
+    "days_ago": 2,
+    "type": "Fiber cut",
+    "resolution_hours": 11.0,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "Recurring fiber fault at Quincy WA; pattern suggests infrastructure issue",
+    "related_incident_ids": [
+      "INC-1504",
+      "INC-1505"
+    ]
+  },
+  {
+    "incident_id": "INC-1504",
+    "vendor_id": "vendor-003",
+    "days_ago": 9,
+    "type": "Splice failure",
+    "resolution_hours": 6.9,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "Recurring fiber fault at Quincy WA; pattern suggests infrastructure issue"
+  },
+  {
+    "incident_id": "INC-1505",
+    "vendor_id": "vendor-003",
+    "days_ago": 16,
+    "type": "Cable damage",
+    "resolution_hours": 8.0,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "Recurring fiber fault at Quincy WA; pattern suggests infrastructure issue"
+  },
+  {
+    "incident_id": "INC-1506",
+    "vendor_id": "vendor-007",
+    "days_ago": 3,
+    "type": "Cooling system failure",
+    "resolution_hours": 7.5,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "Cooling cluster recurrence at Atlanta GA \u2014 fourth event in 24-day window"
+  },
+  {
+    "incident_id": "INC-1507",
+    "vendor_id": "vendor-007",
+    "days_ago": 10,
+    "type": "CRAC unit failure",
+    "resolution_hours": 6.5,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "Cooling cluster recurrence at Atlanta GA \u2014 fourth event in 24-day window"
+  },
+  {
+    "incident_id": "INC-1508",
+    "vendor_id": "vendor-007",
+    "days_ago": 17,
+    "type": "Cooling system failure",
+    "resolution_hours": 13.2,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "Cooling cluster recurrence at Atlanta GA \u2014 fourth event in 24-day window",
+    "related_incident_ids": [
+      "INC-1506",
+      "INC-1507"
+    ]
+  },
+  {
+    "incident_id": "INC-1509",
+    "vendor_id": "vendor-007",
+    "days_ago": 24,
+    "type": "Airflow obstruction",
+    "resolution_hours": 13.5,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "Cooling cluster recurrence at Atlanta GA \u2014 fourth event in 24-day window"
+  },
+  {
+    "incident_id": "INC-1510",
+    "vendor_id": "vendor-004",
+    "days_ago": 44,
+    "type": "Cooling unit trip",
+    "resolution_hours": -1,
+    "repeat_within_90d": true,
+    "customer_impact": "TBD",
+    "outcome": "Resolution time not captured"
+  },
+  {
+    "incident_id": "INC-1511",
+    "vendor_id": "vendor-004",
+    "days_ago": 10,
+    "type": "Cooling failure",
+    "resolution_hours": -1,
+    "repeat_within_90d": true,
+    "customer_impact": "pending review",
+    "outcome": "Resolution time not captured"
+  },
+  {
+    "incident_id": "INC-1512",
+    "vendor_id": "vendor-004",
+    "days_ago": 72,
+    "type": "Generator fault",
+    "resolution_hours": -1,
+    "repeat_within_90d": true,
+    "customer_impact": "TBD",
+    "outcome": "[automated summary failed]"
+  },
+  {
+    "incident_id": "INC-1513",
+    "vendor_id": "vendor-004",
+    "days_ago": 2,
+    "type": "Generator fault",
+    "resolution_hours": -1,
+    "repeat_within_90d": true,
+    "customer_impact": "pending review",
+    "outcome": "[automated summary failed]"
+  },
+  {
+    "incident_id": "INC-1514",
+    "vendor_id": "vendor-002",
+    "days_ago": 48,
+    "type": "Link flap",
+    "resolution_hours": -1,
+    "repeat_within_90d": false,
+    "customer_impact": "TBD",
+    "outcome": "Resolution time not captured"
+  },
+  {
+    "incident_id": "INC-1515",
+    "vendor_id": "vendor-009",
+    "days_ago": 14,
+    "type": "Sensor alert",
+    "resolution_hours": -1,
+    "repeat_within_90d": false,
+    "customer_impact": "pending review",
+    "outcome": "Resolution time not captured"
+  },
+  {
+    "incident_id": "INC-1516",
+    "vendor_id": "vendor-005",
+    "days_ago": 80,
+    "type": "Tower equipment fault",
+    "resolution_hours": -1,
+    "repeat_within_90d": false,
+    "customer_impact": "TBD",
+    "outcome": "[automated summary failed]"
+  },
+  {
+    "incident_id": "INC-1517",
+    "vendor_id": "vendor-004",
+    "days_ago": 83,
+    "type": "Power failure",
+    "resolution_hours": -1,
+    "repeat_within_90d": false,
+    "customer_impact": "TBD",
+    "outcome": "[automated summary failed]"
+  },
+  {
+    "incident_id": "INC-1518",
+    "vendor_id": "vendor-010",
+    "days_ago": 84,
+    "type": "Chiller fault",
+    "resolution_hours": -1,
+    "repeat_within_90d": true,
+    "customer_impact": "pending review",
+    "outcome": "Resolution time not captured"
+  },
+  {
+    "incident_id": "INC-1519",
+    "vendor_id": "vendor-006",
+    "days_ago": 6,
+    "type": "Fiber cut",
+    "resolution_hours": -1,
+    "repeat_within_90d": false,
+    "customer_impact": "TBD",
+    "outcome": "[automated summary failed]"
+  },
+  {
+    "incident_id": "INC-1520",
+    "vendor_id": "vendor-004",
+    "days_ago": 15,
+    "type": "Power failure",
+    "resolution_hours": 18.9,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "90-minute outage, customer executive escalation triggered, post-incident review required"
+  },
+  {
+    "incident_id": "INC-1521",
+    "vendor_id": "vendor-004",
+    "days_ago": 59,
+    "type": "Generator fault",
+    "resolution_hours": 35.5,
+    "repeat_within_90d": false,
+    "customer_impact": "moderate",
+    "outcome": "Complete service disruption for 6 hours, SLA breach, VP-level escalation triggered"
+  },
+  {
+    "incident_id": "INC-1522",
+    "vendor_id": "vendor-004",
+    "days_ago": 76,
+    "type": "Airflow obstruction",
+    "resolution_hours": 37.6,
+    "repeat_within_90d": false,
+    "customer_impact": "moderate",
+    "outcome": "Cooling failure cascaded to adjacent pods; 8-hour restoration window"
+  },
+  {
+    "incident_id": "INC-1523",
+    "vendor_id": "vendor-004",
+    "days_ago": 63,
+    "type": "Thermal event",
+    "resolution_hours": 25.5,
+    "repeat_within_90d": false,
+    "customer_impact": "moderate",
+    "outcome": "Generator failed to start during utility outage; 5-hour recovery effort"
+  },
+  {
+    "incident_id": "INC-1524",
+    "vendor_id": "vendor-004",
+    "days_ago": 89,
+    "type": "Generator fault",
+    "resolution_hours": 18.3,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "Power feed fault caused full pod shutdown; VP-level escalation, SLA breach"
+  },
+  {
+    "incident_id": "INC-1525",
+    "vendor_id": "vendor-004",
+    "days_ago": 47,
+    "type": "Power failure",
+    "resolution_hours": 47.3,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "Production VLAN down for 4 hours; three downstream services affected"
+  },
+  {
+    "incident_id": "INC-1526",
+    "vendor_id": "vendor-004",
+    "days_ago": 8,
+    "type": "UPS failure",
+    "resolution_hours": 20.5,
+    "repeat_within_90d": false,
+    "customer_impact": "moderate",
+    "outcome": "UPS bypass failed; cold-start required 6 hours and external vendor support"
+  },
+  {
+    "incident_id": "INC-1527",
+    "vendor_id": "vendor-004",
+    "days_ago": 12,
+    "type": "Airflow obstruction",
+    "resolution_hours": 18.1,
+    "repeat_within_90d": false,
+    "customer_impact": "moderate",
+    "outcome": "Thermal runaway event in hot aisle; 12 hours to restore safe operating temps"
+  },
+  {
+    "incident_id": "INC-1528",
+    "vendor_id": "vendor-004",
+    "days_ago": 7,
+    "type": "Cooling unit trip",
+    "resolution_hours": 22.7,
+    "repeat_within_90d": false,
+    "customer_impact": "moderate",
+    "outcome": "Repeat power event \u2014 fourth occurrence in 60 days; SLA in formal breach"
+  },
+  {
+    "incident_id": "INC-1529",
+    "vendor_id": "vendor-004",
+    "days_ago": 9,
+    "type": "Cooling unit trip",
+    "resolution_hours": 39.1,
+    "repeat_within_90d": true,
+    "customer_impact": "low",
+    "outcome": "SLA breach triggered executive briefing; vendor placed on watch list"
+  },
+  {
+    "incident_id": "INC-1530",
+    "vendor_id": "vendor-004",
+    "days_ago": 30,
+    "type": "Generator fault",
+    "resolution_hours": 39.4,
+    "repeat_within_90d": false,
+    "customer_impact": "low",
+    "outcome": "Three-site simultaneous outage; full incident command activated"
+  },
+  {
+    "incident_id": "INC-1531",
+    "vendor_id": "vendor-004",
+    "days_ago": 36,
+    "type": "Cooling unit trip",
+    "resolution_hours": 47.4,
+    "repeat_within_90d": false,
+    "customer_impact": "minor",
+    "outcome": "Complete power loss to pod B; recovery required full generator failover \u2014 4+ hours"
+  },
+  {
+    "incident_id": "INC-1532",
+    "vendor_id": "vendor-004",
+    "days_ago": 23,
+    "type": "Power failure",
+    "resolution_hours": 35.1,
+    "repeat_within_90d": true,
+    "customer_impact": "minor",
+    "outcome": "Cascading cooling failure, data hall temperature rose to 85\u00b0F before stabilization"
+  },
+  {
+    "incident_id": "INC-1533",
+    "vendor_id": "vendor-004",
+    "days_ago": 46,
+    "type": "Cooling unit trip",
+    "resolution_hours": 40.0,
+    "repeat_within_90d": true,
+    "customer_impact": "high",
+    "outcome": "Resolved in 12 min, no customer impact captured"
+  },
+  {
+    "incident_id": "INC-1534",
+    "vendor_id": "vendor-004",
+    "days_ago": 23,
+    "type": "Generator fault",
+    "resolution_hours": 12.0,
+    "repeat_within_90d": false,
+    "customer_impact": "high",
+    "outcome": "Brief glitch, self-resolved, no escalations, no tickets filed downstream"
+  },
+  {
+    "incident_id": "INC-1535",
+    "vendor_id": "vendor-004",
+    "days_ago": 9,
+    "type": "UPS failure",
+    "resolution_hours": 27.0,
+    "repeat_within_90d": true,
+    "customer_impact": "high",
+    "outcome": "Technician cleared alarm in under 10 minutes; no customer complaints received"
+  },
+  {
+    "incident_id": "INC-1536",
+    "vendor_id": "vendor-004",
+    "days_ago": 58,
+    "type": "Thermal event",
+    "resolution_hours": 18.4,
+    "repeat_within_90d": false,
+    "customer_impact": "moderate",
+    "outcome": "SLA breach on resolution; secondary incident opened during recovery"
+  },
+  {
+    "incident_id": "INC-1537",
+    "vendor_id": "vendor-004",
+    "days_ago": 59,
+    "type": "Airflow obstruction",
+    "resolution_hours": 46.6,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "Airflow failure caused thermal shutdown of two compute rows \u2014 7-hour outage"
+  },
+  {
+    "incident_id": "INC-1538",
+    "vendor_id": "vendor-004",
+    "days_ago": 52,
+    "type": "UPS failure",
+    "resolution_hours": 36.1,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "CRAC unit failure went unreported for 3 hours; escalated to VP"
+  },
+  {
+    "incident_id": "INC-1539",
+    "vendor_id": "vendor-004",
+    "days_ago": 10,
+    "type": "Power failure",
+    "resolution_hours": 22.2,
+    "repeat_within_90d": true,
+    "customer_impact": "minor",
+    "outcome": "Repeat issue for the third time this month at the same site"
+  },
+  {
+    "incident_id": "INC-1540",
+    "vendor_id": "vendor-001",
+    "days_ago": 36,
+    "type": "Connector fault",
+    "resolution_hours": 11.0,
+    "repeat_within_90d": false,
+    "customer_impact": "moderate",
+    "outcome": "Production VLAN down for 4 hours; three downstream services affected"
+  },
+  {
+    "incident_id": "INC-1541",
+    "vendor_id": "vendor-002",
+    "days_ago": 59,
+    "type": "Switch fault",
+    "resolution_hours": 5.1,
+    "repeat_within_90d": false,
+    "customer_impact": "high",
+    "outcome": "Brief glitch, self-resolved, no escalations, no tickets filed downstream"
+  },
+  {
+    "incident_id": "INC-1542",
+    "vendor_id": "vendor-003",
+    "days_ago": 84,
+    "type": "Splice failure",
+    "resolution_hours": 12.0,
+    "repeat_within_90d": false,
+    "customer_impact": "low",
+    "outcome": "Three-site simultaneous outage; full incident command activated"
+  },
+  {
+    "incident_id": "INC-1543",
+    "vendor_id": "vendor-006",
+    "days_ago": 44,
+    "type": "Cable splice failure",
+    "resolution_hours": 11.4,
+    "repeat_within_90d": false,
+    "customer_impact": "minor",
+    "outcome": "Repeat issue for the third time this month at the same site"
+  },
+  {
+    "incident_id": "INC-1544",
+    "vendor_id": "vendor-008",
+    "days_ago": 55,
+    "type": "Cable degradation",
+    "resolution_hours": 17.0,
+    "repeat_within_90d": false,
+    "customer_impact": "high",
+    "outcome": "Technician cleared alarm in under 10 minutes; no customer complaints received"
+  },
+  {
+    "incident_id": "INC-1545",
+    "vendor_id": "vendor-003",
+    "days_ago": 7,
+    "type": "Optical amplifier fault",
+    "resolution_hours": 18.8,
+    "repeat_within_90d": true,
+    "customer_impact": "Severity 1",
+    "outcome": "Extended outage: 5 hours 45 minutes of full service loss"
+  },
+  {
+    "incident_id": "INC-1546",
+    "vendor_id": "vendor-001",
+    "days_ago": 20,
+    "type": "Splicing issue",
+    "resolution_hours": 8.3,
+    "repeat_within_90d": true,
+    "customer_impact": "Severity 2",
+    "outcome": "Restored after 2.5h; secondary incidents triggered"
+  },
+  {
+    "incident_id": "INC-1547",
+    "vendor_id": "vendor-010",
+    "days_ago": 15,
+    "type": "Cooling tower issue",
+    "resolution_hours": 18.1,
+    "repeat_within_90d": false,
+    "customer_impact": "Severity 3",
+    "outcome": "Downtime: 0.75 hours"
+  },
+  {
+    "incident_id": "INC-1548",
+    "vendor_id": "vendor-007",
+    "days_ago": 80,
+    "type": "Cooling system failure",
+    "resolution_hours": 19.1,
+    "repeat_within_90d": false,
+    "customer_impact": "Severity 4",
+    "outcome": "Network degraded for roughly 3h before full restoration"
+  },
+  {
+    "incident_id": "INC-1549",
+    "vendor_id": "vendor-007",
+    "days_ago": 24,
+    "type": "Generator alarm",
+    "resolution_hours": 21.7,
+    "repeat_within_90d": true,
+    "customer_impact": "P1",
+    "outcome": "90 minutes of downtime, customer reported significant impact"
+  },
+  {
+    "incident_id": "INC-1550",
+    "vendor_id": "vendor-009",
+    "days_ago": 24,
+    "type": "Sensor alert",
+    "resolution_hours": 17.9,
+    "repeat_within_90d": false,
+    "customer_impact": "P2",
+    "outcome": "RESOLVED-SLA-MET"
+  },
+  {
+    "incident_id": "INC-1551",
+    "vendor_id": "vendor-004",
+    "days_ago": 12,
+    "type": "Airflow obstruction",
+    "resolution_hours": 16.9,
+    "repeat_within_90d": true,
+    "customer_impact": "P3",
+    "outcome": "RESOLVED-SLA-MET"
+  },
+  {
+    "incident_id": "INC-1552",
+    "vendor_id": "vendor-003",
+    "days_ago": 48,
+    "type": "Optical amplifier fault",
+    "resolution_hours": 22.2,
+    "repeat_within_90d": false,
+    "customer_impact": "Critical",
+    "outcome": "Brief disruption (~15 min)"
+  },
+  {
+    "incident_id": "INC-1553",
+    "vendor_id": "vendor-004",
+    "days_ago": 7,
+    "type": "Cooling failure",
+    "resolution_hours": 6.4,
+    "repeat_within_90d": false,
+    "customer_impact": "Major",
+    "outcome": "4-hour outage on the production VLAN"
+  },
+  {
+    "incident_id": "INC-1554",
+    "vendor_id": "vendor-006",
+    "days_ago": 57,
+    "type": "Outside plant damage",
+    "resolution_hours": 13.9,
+    "repeat_within_90d": false,
+    "customer_impact": "Minor",
+    "outcome": "Half a day of degraded performance"
+  },
+  {
+    "incident_id": "INC-1555",
+    "vendor_id": "vendor-004",
+    "days_ago": 66,
+    "type": "Power failure",
+    "resolution_hours": 11.7,
+    "repeat_within_90d": true,
+    "customer_impact": "Tier 1 impact",
+    "outcome": "Restored after 2.5h; secondary incidents triggered"
+  },
+  {
+    "incident_id": "INC-1556",
+    "vendor_id": "vendor-001",
+    "days_ago": 63,
+    "type": "Connector fault",
+    "resolution_hours": 3.3,
+    "repeat_within_90d": true,
+    "customer_impact": "Tier 2 impact",
+    "outcome": "Outage lasted ~2h before remediation completed"
+  },
+  {
+    "incident_id": "INC-1557",
+    "vendor_id": "vendor-004",
+    "days_ago": 27,
+    "type": "Generator fault",
+    "resolution_hours": 28.5,
+    "repeat_within_90d": false,
+    "customer_impact": "1",
+    "outcome": "90 minutes of downtime, customer reported significant impact"
+  },
+  {
+    "incident_id": "INC-1558",
+    "vendor_id": "vendor-007",
+    "days_ago": 42,
+    "type": "Cooling system failure",
+    "resolution_hours": 2.2,
+    "repeat_within_90d": false,
+    "customer_impact": "2",
+    "outcome": "Half a day of degraded performance"
+  },
+  {
+    "incident_id": "INC-1559",
+    "vendor_id": "vendor-005",
+    "days_ago": 69,
+    "type": "Tower equipment fault",
+    "resolution_hours": 8.4,
+    "repeat_within_90d": false,
+    "customer_impact": "3",
+    "outcome": "CLOSED-REWORK-REQUIRED"
+  },
+  {
+    "incident_id": "INC-1560",
+    "vendor_id": "vendor-004",
+    "days_ago": 10,
+    "type": "UPS failure",
+    "resolution_hours": 26.1,
+    "repeat_within_90d": true,
+    "customer_impact": "4",
+    "outcome": "Downtime: 0.75 hours"
+  },
+  {
+    "incident_id": "INC-1561",
+    "vendor_id": "vendor-002",
+    "days_ago": 41,
+    "type": "Switch fault",
+    "resolution_hours": 18.1,
+    "repeat_within_90d": false,
+    "customer_impact": "",
+    "outcome": "RESOLVED-SLA-MET"
+  },
+  {
+    "incident_id": "INC-1562",
+    "vendor_id": "vendor-005",
+    "days_ago": 52,
+    "type": "Microwave link degradation",
+    "resolution_hours": 29.1,
+    "repeat_within_90d": true,
+    "customer_impact": "",
+    "outcome": "4-hour outage on the production VLAN"
+  },
+  {
+    "incident_id": "INC-1563",
+    "vendor_id": "vendor-008",
+    "days_ago": 89,
+    "type": "Cable degradation",
+    "resolution_hours": 4.5,
+    "repeat_within_90d": false,
+    "customer_impact": "Severity 1",
+    "outcome": "Total outage duration: 3 hours 20 minutes"
+  },
+  {
+    "incident_id": "INC-1564",
+    "vendor_id": "vendor-008",
+    "days_ago": 68,
+    "type": "Fiber cut",
+    "resolution_hours": 13.1,
+    "repeat_within_90d": true,
+    "customer_impact": "Severity 2",
+    "outcome": "CLOSED-REWORK-REQUIRED"
+  },
+  {
+    "incident_id": "INC-1565",
+    "vendor_id": "vendor-010",
+    "days_ago": 22,
+    "type": "HVAC failure",
+    "resolution_hours": 16.3,
+    "repeat_within_90d": true,
+    "customer_impact": "Severity 3",
+    "outcome": "ESCALATED-NO-RESOLUTION"
+  },
+  {
+    "incident_id": "INC-1566",
+    "vendor_id": "vendor-002",
+    "days_ago": 45,
+    "type": "Link flap",
+    "resolution_hours": 22.4,
+    "repeat_within_90d": false,
+    "customer_impact": "Severity 4",
+    "outcome": "Disruption window: 6h 10min"
+  },
+  {
+    "incident_id": "INC-1567",
+    "vendor_id": "vendor-006",
+    "days_ago": 14,
+    "type": "Fiber cut",
+    "resolution_hours": 9.2,
+    "repeat_within_90d": true,
+    "customer_impact": "P1",
+    "outcome": "Restored after 2.5h; secondary incidents triggered"
+  },
+  {
+    "incident_id": "INC-1568",
+    "vendor_id": "vendor-009",
+    "days_ago": 23,
+    "type": "Link degradation",
+    "resolution_hours": 15.0,
+    "repeat_within_90d": false,
+    "customer_impact": "P2",
+    "outcome": "RESOLVED-SLA-MET"
+  },
+  {
+    "incident_id": "INC-1569",
+    "vendor_id": "vendor-003",
+    "days_ago": 73,
+    "type": "Optical amplifier fault",
+    "resolution_hours": 26.2,
+    "repeat_within_90d": false,
+    "customer_impact": "P3",
+    "outcome": "Incident cleared in 30 min; minimal customer exposure"
+  },
+  {
+    "incident_id": "INC-1570",
+    "vendor_id": "vendor-004",
+    "days_ago": 48,
+    "type": "Cooling unit trip",
+    "resolution_hours": 33.9,
+    "repeat_within_90d": true,
+    "customer_impact": "moderate",
+    "outcome": "90 minutes of downtime, customer reported significant impact"
+  },
+  {
+    "incident_id": "INC-1571",
+    "vendor_id": "vendor-004",
+    "days_ago": 12,
+    "type": "Thermal event",
+    "resolution_hours": 22.3,
+    "repeat_within_90d": false,
+    "customer_impact": "moderate",
+    "outcome": "4-hour outage on the production VLAN"
+  },
+  {
+    "incident_id": "INC-1572",
+    "vendor_id": "vendor-008",
+    "days_ago": 71,
+    "type": "Fiber cut",
+    "resolution_hours": 12.1,
+    "repeat_within_90d": false,
+    "customer_impact": "high",
+    "outcome": "Brief disruption (~15 min)"
   }
 ]
