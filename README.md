@@ -2,7 +2,7 @@
 
 A Foundry hosted agent built for BRK252 Act II — Code-first end-to-end observability. The agent analyzes vendor performance across data center operational history (SLA adherence, dispatch timing, communications, incident outcomes) and recommends actions for a vendor manager.
 
-It ships in two flavors: a deliberately overconfident V1 (the starting point of the demo) and an optimized V2 (the target the single-shot prompt optimizer produces). The optimization gap is the demo.
+It ships with a deliberately overconfident V1 prompt (the starting point of the demo) plus optimized V2 variants (`system_prompt_v2.md` and `system_prompt_v2_optimized.md`). The optimization gap is the demo.
 
 ## Scenario fit
 
@@ -36,14 +36,17 @@ vendor-performance-analyst/
 ├── foundry.json                    Foundry project context (skill reads this)
 ├── agent.manifest.yaml             manifest-driven hosted-agent config (azd ai agent init)
 ├── faos_spec.yaml                  the "Advanced: FAOS" handoff spec
+├── main.py                         Responses protocol host entry point
 ├── pyproject.toml                  Python deps
+├── requirements.txt                pinned requirements mirror
 ├── .env.example                    required env vars (the FAOS knobs)
 │
 ├── agent/
 │   ├── agent.py                    agent definition + entry point
 │   ├── prompts/
 │   │   ├── system_prompt_v1.md     overconfident; demo starting point
-│   │   └── system_prompt_v2.md     optimized; reference target
+│   │   ├── system_prompt_v2.md     optimized reference target
+│   │   └── system_prompt_v2_optimized.md alternate optimized variant
 │   └── tools/
 │       ├── __init__.py
 │       ├── vendor_lookup.py
@@ -65,11 +68,13 @@ vendor-performance-analyst/
 │   └── actionability.yaml          supporting
 │
 ├── datasets/
-│   └── vendor_queries.jsonl        20 rows across evidence-quality buckets
+│   └── vendor_queries.jsonl        110 rows across evidence/failure buckets
 │
 └── scripts/
+    ├── collect_responses.py        collect deployed-agent outputs for eval review
     ├── seed_traces.py              populate traces before demo
     ├── local_run.py                single-query invoke for dev
+    ├── eval_rows*.json             split eval row packs for batch workflows
     ├── eval_harness.py             VALIDATE V1 vs V2 deltas before stage time
     └── run_eval.py                 CI eval runner (used by GH Actions)
 ```
@@ -90,9 +95,10 @@ uv pip install -e .
 
 # Configure
 cp .env.example .env
-# fill in FOUNDRY_PROJECT_ENDPOINT, AZURE_AI_MODEL_DEPLOYMENT_NAME
+# fill in AZURE_AI_PROJECT_ENDPOINT, MODEL_DEPLOYMENT_NAME
+# (FOUNDRY_PROJECT_ENDPOINT / AZURE_AI_MODEL_DEPLOYMENT_NAME are also supported)
 
-# Validate the optimization gap BEFORE going on stage (~15 min, ~$3)
+# Validate the optimization gap BEFORE going on stage
 # This runs V1 and V2 locally and prints the score deltas you'll see live.
 python scripts/eval_harness.py
 
