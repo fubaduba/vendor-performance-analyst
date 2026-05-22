@@ -70,6 +70,28 @@ AZURE_AI_MODEL_DEPLOYMENT_NAME: str | None = os.environ.get(
     "AZURE_AI_MODEL_DEPLOYMENT_NAME"
 ) or os.environ.get("MODEL_DEPLOYMENT_NAME")
 
+_telemetry_configured = False
+
+
+def _configure_telemetry() -> None:
+    """Configure Azure Monitor OpenTelemetry when connection string is provided."""
+    global _telemetry_configured
+    if _telemetry_configured:
+        return
+    _telemetry_configured = True
+
+    connection_string = os.environ.get("APPLICATIONINSIGHTS_CONNECTION_STRING")
+    if not connection_string:
+        return
+
+    try:
+        from azure.monitor.opentelemetry import configure_azure_monitor
+
+        configure_azure_monitor(connection_string=connection_string, logger_name=__name__)
+        logger.info("Azure Monitor telemetry configured")
+    except Exception as e:  # noqa: BLE001
+        logger.warning("Failed to configure Azure Monitor telemetry: %s", e)
+
 
 def _require_env() -> None:
     """Raise EnvironmentError if required env vars are absent.
@@ -106,6 +128,7 @@ def _get_credential() -> DefaultAzureCredential:
 def _get_project_client() -> AIProjectClient:
     global _project_client
     if _project_client is None:
+        _configure_telemetry()
         assert FOUNDRY_PROJECT_ENDPOINT  # validated by _require_env before first use
         _project_client = AIProjectClient(
             endpoint=FOUNDRY_PROJECT_ENDPOINT, credential=_get_credential()
