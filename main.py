@@ -19,6 +19,8 @@ import logging
 import os
 import time
 
+from opentelemetry import trace
+
 from azure.ai.agentserver.responses import (
     CreateResponse,
     ResponseContext,
@@ -74,7 +76,11 @@ _telemetry_configured = False
 
 
 def _configure_telemetry() -> None:
-    """Configure Azure Monitor OpenTelemetry when connection string is provided."""
+    """Configure Azure Monitor OpenTelemetry and OpenInference instrumentation.
+
+    OpenInference captures LLM input/output on every OpenAI call, enabling
+    trace-based continuous evaluations in Foundry.
+    """
     global _telemetry_configured
     if _telemetry_configured:
         return
@@ -91,6 +97,15 @@ def _configure_telemetry() -> None:
         logger.info("Azure Monitor telemetry configured")
     except Exception as e:  # noqa: BLE001
         logger.warning("Failed to configure Azure Monitor telemetry: %s", e)
+        return
+
+    try:
+        from openinference.instrumentation.openai import OpenAIInstrumentor
+
+        OpenAIInstrumentor().instrument()
+        logger.info("OpenInference OpenAI instrumentation enabled")
+    except Exception as e:  # noqa: BLE001
+        logger.warning("Failed to enable OpenInference instrumentation: %s", e)
 
 
 def _require_env() -> None:
@@ -236,6 +251,8 @@ async def handle_create(
     """Drive the model + tool loop and stream the final answer."""
     _require_env()
 
+    tracer = trace.get_tracer(__name__)
+
     stream = ResponseEventStream(response_id=context.response_id, request=request)
 
     yield stream.emit_created()
@@ -243,6 +260,10 @@ async def handle_create(
 
     user_input = await context.get_input_text() or ""
     history = await context.get_history()
+
+    # Record input on the current span for trace-based evals
+    span = trace.get_current_span()
+    span.set_attribute("input.value", user_input)
 
     message_item = stream.add_output_item_message()
     yield message_item.emit_added()
@@ -332,6 +353,9 @@ async def handle_create(
         )
         yield stream.emit_incomplete(str(e))
         return
+
+    # Record output on the current span for trace-based evals
+    span.set_attribute("output.value", final_text)
 
     yield text_content.emit_text_done()
     yield text_content.emit_done()
