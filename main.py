@@ -19,7 +19,7 @@ import logging
 import os
 import time
 
-from opentelemetry import trace
+from opentelemetry import context as context_api, trace
 
 from azure.ai.agentserver.responses import (
     CreateResponse,
@@ -76,36 +76,21 @@ _telemetry_configured = False
 
 
 def _configure_telemetry() -> None:
-    """Configure Azure Monitor OpenTelemetry and OpenInference instrumentation.
+    """No-op — the new azure-ai-agentserver-core (2.0.0b5+) auto-configures
+    tracing via microsoft-opentelemetry distro in the AgentServerHost __init__.
 
-    OpenInference captures LLM input/output on every OpenAI call, enabling
-    trace-based continuous evaluations in Foundry.
+    It reads APPLICATIONINSIGHTS_CONNECTION_STRING from the environment and
+    enables the opentelemetry-instrumentation-openai-v2 instrumentor with
+    sensitive data recording (message content) based on
+    OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT (defaults to true).
+
+    This function is kept as a placeholder so existing call sites don't break.
     """
     global _telemetry_configured
     if _telemetry_configured:
         return
     _telemetry_configured = True
-
-    connection_string = os.environ.get("APPLICATIONINSIGHTS_CONNECTION_STRING")
-    if not connection_string:
-        return
-
-    try:
-        from azure.monitor.opentelemetry import configure_azure_monitor
-
-        configure_azure_monitor(connection_string=connection_string, logger_name=__name__)
-        logger.info("Azure Monitor telemetry configured")
-    except Exception as e:  # noqa: BLE001
-        logger.warning("Failed to configure Azure Monitor telemetry: %s", e)
-        return
-
-    try:
-        from openinference.instrumentation.openai import OpenAIInstrumentor
-
-        OpenAIInstrumentor().instrument()
-        logger.info("OpenInference OpenAI instrumentation enabled")
-    except Exception as e:  # noqa: BLE001
-        logger.warning("Failed to enable OpenInference instrumentation: %s", e)
+    logger.info("Telemetry is auto-configured by azure-ai-agentserver-core distro.")
 
 
 def _require_env() -> None:
@@ -261,8 +246,21 @@ async def handle_create(
     user_input = await context.get_input_text() or ""
     history = await context.get_history()
 
-    # Record input on the current span for trace-based evals
-    span = trace.get_current_span()
+    # Create an explicit span so traces are recorded even without incoming traceparent.
+    # The span wraps the entire model+tool loop and carries input/output for evals.
+    span = tracer.start_span(
+        "invoke_agent",
+        attributes={
+            "gen_ai.system": "azure.ai.agentserver",
+            "gen_ai.operation.name": "invoke_agent",
+            "gen_ai.agent.name": "vendorjobdetails",
+            "gen_ai.response.id": context.response_id,
+        },
+    )
+    ctx = trace.set_span_in_context(span)
+    token = context_api.attach(ctx)
+
+    # Record input on the span for trace-based evals
     span.set_attribute("input.value", user_input)
 
     message_item = stream.add_output_item_message()
@@ -278,6 +276,8 @@ async def handle_create(
     try:
         for _ in range(MAX_TOOL_ITERATIONS):
             if cancellation_signal.is_set():
+                span.end()
+                context_api.detach(token)
                 yield stream.emit_incomplete("cancelled")
                 return
 
@@ -351,11 +351,17 @@ async def handle_create(
             "Error calling Foundry model",
             extra={"error": str(e), "response_id": context.response_id},
         )
+        span.set_status(trace.StatusCode.ERROR, str(e))
+        span.record_exception(e)
+        span.end()
+        context_api.detach(token)
         yield stream.emit_incomplete(str(e))
         return
 
     # Record output on the current span for trace-based evals
     span.set_attribute("output.value", final_text)
+    span.end()
+    context_api.detach(token)
 
     yield text_content.emit_text_done()
     yield text_content.emit_done()

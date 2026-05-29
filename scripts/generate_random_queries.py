@@ -3,8 +3,9 @@
 Loads vendor names and metadata from data/vendors.json, produces randomized
 queries by combining vendor names with query templates, then calls the
 Foundry hosted agent for each query. Traces are exported to Application
-Insights following the OpenTelemetry GenAI semantic conventions required
-for Foundry trace-based continuous evaluation.
+Insights using the OpenAI SDK + opentelemetry-instrumentation-openai-v2
+which automatically records messages as span events following the GenAI
+semantic conventions required for Foundry trace-based continuous evaluation.
 
 Usage:
   python scripts/generate_random_queries.py
@@ -25,16 +26,16 @@ from uuid import uuid4
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
+# Enable content recording so the instrumentor captures message bodies
+os.environ.setdefault("OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT", "true")
+
 from dotenv import load_dotenv  # noqa: E402
 
 load_dotenv(Path(__file__).parent.parent / ".env")
 
-import httpx  # noqa: E402
 from azure.identity import DefaultAzureCredential  # noqa: E402
+from openai import OpenAI  # noqa: E402
 from opentelemetry import trace  # noqa: E402
-from opentelemetry.sdk.trace import TracerProvider  # noqa: E402
-from opentelemetry.sdk.trace.export import BatchSpanProcessor  # noqa: E402
-from opentelemetry.propagate import inject  # noqa: E402
 
 REPO_ROOT = Path(__file__).parent.parent
 AGENT_ID = "vendorjobdetails"
@@ -45,11 +46,11 @@ RETRY_DELAY = 5
 
 
 def _configure_tracing() -> None:
-    """Configure OpenTelemetry tracing to export to Application Insights.
+    """Configure Azure Monitor for trace-based evals.
 
-    Trace evaluation requires spans in Application Insights with GenAI semantic
-    conventions. The eval service reads invoke_agent spans and extracts
-    gen_ai.input.messages / gen_ai.output.messages for evaluator inputs.
+    Uses configure_azure_monitor() to export spans to Application Insights.
+    We manually emit gen_ai.user.message and gen_ai.choice span events
+    because the OpenAI instrumentor does not support responses.create().
     """
     connection_string = os.environ.get("APPLICATIONINSIGHTS_CONNECTION_STRING")
     if not connection_string:
@@ -58,12 +59,9 @@ def _configure_tracing() -> None:
             "Trace evaluation requires spans exported to Application Insights."
         )
 
-    from azure.monitor.opentelemetry.exporter import AzureMonitorTraceExporter
+    from azure.monitor.opentelemetry import configure_azure_monitor
 
-    provider = TracerProvider()
-    exporter = AzureMonitorTraceExporter(connection_string=connection_string)
-    provider.add_span_processor(BatchSpanProcessor(exporter))
-    trace.set_tracer_provider(provider)
+    configure_azure_monitor(connection_string=connection_string)
 
 # Query templates that reference a specific vendor (use {name} placeholder)
 VENDOR_SPECIFIC_TEMPLATES = [
@@ -125,62 +123,19 @@ def load_vendors() -> list[dict]:
         return json.loads(f.read())
 
 
-def invoke_agent(endpoint: str, token: str, query: str, query_id: str, batch_run_id: str) -> tuple[str, str | None]:
-    """Invoke the hosted agent via the responses protocol with retries."""
-    last_exc: Exception | None = None
-    for attempt in range(1, MAX_RETRIES + 2):
-        request_id = str(uuid4())
+def _get_openai_client(token: str) -> OpenAI:
+    """Create an OpenAI client pointed at the hosted agent's Responses endpoint.
 
-        # Build headers with W3C trace context propagation
-        headers = {
-            "Authorization": f"Bearer {token}",
-            "Content-Type": "application/json",
-            "x-ms-client-request-id": request_id,
-        }
-        # Inject traceparent/tracestate so server-side traces are correlated
-        inject(headers)
-
-        try:
-            resp = httpx.post(
-                f"{endpoint}/agents/{AGENT_ID}/endpoint/protocols/openai/responses",
-                params={"api-version": "2025-05-15-preview", "version": AGENT_VERSION},
-                headers=headers,
-                json={
-                    "model": "gpt-4o",
-                    "input": query,
-                    "metadata": {
-                        "batch_run_id": batch_run_id,
-                        "query_id": query_id,
-                        "client_request_id": request_id,
-                    },
-                },
-                timeout=90,
-            )
-        except (httpx.TimeoutException, httpx.NetworkError) as e:
-            last_exc = e
-            if attempt <= MAX_RETRIES:
-                time.sleep(RETRY_DELAY)
-                continue
-            raise RuntimeError(f"Network error after {attempt} attempts: {e}") from e
-
-        if resp.status_code >= 500 and attempt <= MAX_RETRIES:
-            last_exc = RuntimeError(f"HTTP {resp.status_code}")
-            time.sleep(RETRY_DELAY)
-            continue
-        if resp.status_code >= 400:
-            raise RuntimeError(f"HTTP {resp.status_code}: {resp.text[:300]}")
-
-        data = resp.json()
-        response_id = data.get("id")
-
-        for item in reversed(data.get("output", [])):
-            content = item.get("content", [])
-            for c in (content if isinstance(content, list) else []):
-                if c.get("type") == "output_text" and c.get("text"):
-                    return c["text"], response_id
-        return "[no output text returned]", response_id
-
-    raise RuntimeError(f"Exhausted retries: {last_exc}")
+    The agent exposes the OpenAI Responses protocol, so we use the standard
+    OpenAI SDK which the instrumentor traces automatically.
+    """
+    return OpenAI(
+        api_key=token,
+        base_url=f"{ENDPOINT}/agents/{AGENT_ID}/endpoint/protocols/openai",
+        default_query={"api-version": "2025-05-15-preview", "version": AGENT_VERSION},
+        timeout=90.0,
+        max_retries=MAX_RETRIES,
+    )
 
 
 def generate_queries(vendors: list[dict], count: int, rng: random.Random) -> list[dict]:
@@ -235,7 +190,7 @@ def main() -> None:
 
     credential = DefaultAzureCredential()
 
-    # Configure tracing — exports to Application Insights for trace evaluation
+    # Configure tracing — instruments OpenAI SDK and exports to App Insights
     _configure_tracing()
     tracer = trace.get_tracer(__name__)
 
@@ -246,59 +201,88 @@ def main() -> None:
     print(f"[generate+invoke] Queries: {len(queries)} (from {len(vendors)} vendors)")
     print()
 
+    # Get initial token (lasts ~1 hour)
+    token = credential.get_token("https://ai.azure.com/.default").token
+    client = _get_openai_client(token)
+    token_time = time.monotonic()
+
     for i, entry in enumerate(queries, 1):
         query = entry["query"]
         query_id = entry["id"]
         print(f"[{i:02d}/{len(queries)}] {query_id}: {query[:80]}...")
 
-        try:
-            token = credential.get_token("https://ai.azure.com/.default").token
-        except Exception:
+        # Refresh token every 45 min to avoid expiration mid-batch
+        if time.monotonic() - token_time > 2700:
             try:
-                time.sleep(3)
                 token = credential.get_token("https://ai.azure.com/.default").token
-            except Exception as e2:
-                print(f"       [auth error: {e2} — skipped]")
-                continue
+                client = _get_openai_client(token)
+                token_time = time.monotonic()
+            except Exception as e:
+                print(f"       [token refresh failed: {e}]")
 
-        # Build gen_ai.input.messages following OpenTelemetry GenAI semantic conventions
-        input_messages = json.dumps([
-            {"role": "user", "content": query}
-        ])
-
-        # Create an invoke_agent span with GenAI semantic conventions
-        # The trace eval service filters on gen_ai.operation.name == "invoke_agent"
+        # Create an invoke_agent span with GenAI semantic conventions.
+        # We manually emit gen_ai.user.message and gen_ai.choice events
+        # because OpenAIInstrumentor doesn't support responses.create().
+        # The continuous eval service reads these events for input/output.
         with tracer.start_as_current_span(
             "invoke_agent",
             attributes={
                 "gen_ai.operation.name": "invoke_agent",
+                "gen_ai.system": "az.ai.agents",
+                "gen_ai.request.model": "gpt-4o",
                 "gen_ai.agent.id": f"{AGENT_ID}:{AGENT_VERSION}",
                 "gen_ai.agent.name": AGENT_ID,
-                "gen_ai.input.messages": input_messages,
-                "gen_ai.system": "az.ai.agents",
             },
         ) as span:
+            # Emit the user message event
+            span.add_event(
+                "gen_ai.user.message",
+                attributes={
+                    "gen_ai.event.content": json.dumps({"role": "user", "content": query}),
+                },
+            )
+
             try:
-                response, response_id = invoke_agent(ENDPOINT, token, query, query_id, batch_run_id)
+                response = client.responses.create(
+                    model="gpt-4o",
+                    input=query,
+                )
+                # Extract text from response output
+                response_text = ""
+                response_id = response.id
+                for item in response.output:
+                    if item.type == "message":
+                        for part in item.content:
+                            if part.type == "output_text":
+                                response_text += part.text
+                if not response_text:
+                    response_text = "[no output text returned]"
             except Exception as e:
-                response = f"[error: {e}]"
+                response_text = f"[error: {e}]"
                 response_id = None
                 span.set_status(trace.StatusCode.ERROR, str(e))
 
-            # Set gen_ai.output.messages after getting the response
-            output_messages = json.dumps([
-                {"role": "assistant", "content": response}
-            ])
-            span.set_attribute("gen_ai.output.messages", output_messages)
-            span.set_attribute("gen_ai.conversation.id", f"{batch_run_id}:{query_id}")
+            # Emit the assistant choice event
+            span.add_event(
+                "gen_ai.choice",
+                attributes={
+                    "gen_ai.event.content": json.dumps({
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "message": {"role": "assistant", "content": response_text},
+                    }),
+                },
+            )
+
             if response_id:
                 span.set_attribute("gen_ai.response.id", response_id)
+            span.set_attribute("gen_ai.response.model", "gpt-4o")
 
-        preview = response[:120].replace("\n", " ")
+        preview = response_text[:120].replace("\n", " ")
         print(f"       [{response_id or 'no-id'}] {preview}")
         time.sleep(1)
 
-    # Flush remaining spans to ensure all traces are delivered to App Insights
+    # Flush remaining spans
     provider = trace.get_tracer_provider()
     if hasattr(provider, "force_flush"):
         provider.force_flush()
