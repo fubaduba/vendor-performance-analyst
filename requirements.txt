@@ -7,3 +7,4 @@ openai>=2.38.0
 pyyaml>=6.0
 opentelemetry-api>=1.25.0
 opentelemetry-sdk>=1.25.0
+azure-ai-agentserver-optimization @ https://github.com/Zyysurely/tool/raw/main/preview/azure_ai_agentserver_optimization-1.0.0b1.dev1-py3-none-any.whl

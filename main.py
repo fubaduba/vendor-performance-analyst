@@ -31,6 +31,8 @@ from azure.ai.agentserver.responses import (
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
 
+from azure.ai.agentserver.optimization import load_config
+
 from agent.agent import AGENT_TOOLS, load_system_prompt
 
 
@@ -143,7 +145,10 @@ def _get_openai_client():
     return _openai_client
 
 
-SYSTEM_PROMPT = load_system_prompt()
+# Load optimization config — uses optimized instructions when running under
+# the optimizer, otherwise falls back to the baseline system prompt.
+_opt_config = load_config()
+SYSTEM_PROMPT = _opt_config.instructions or load_system_prompt()
 
 
 # ── Tool registry ─────────────────────────────────────────────────────────────
