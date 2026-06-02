@@ -1,0 +1,109 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "get_vendor",
+      "description": "Return vendor metadata, contract terms, and performance tier.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "vendor_id": {
+            "type": "string",
+            "description": "Argument vendor_id"
+          }
+        },
+        "required": [
+          "vendor_id"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_recent_dispatches",
+      "description": "Return recent dispatch records for a vendor within the last N days.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "vendor_id": {
+            "type": "string",
+            "description": "Argument vendor_id"
+          },
+          "days": {
+            "type": "integer",
+            "description": "Argument days"
+          }
+        },
+        "required": [
+          "vendor_id"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_sla_record",
+      "description": "Return SLA targets, breaches, and response time stats for a vendor.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "vendor_id": {
+            "type": "string",
+            "description": "Argument vendor_id"
+          }
+        },
+        "required": [
+          "vendor_id"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_communications_summary",
+      "description": "Return summarized Teams and email threads with a vendor.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "vendor_id": {
+            "type": "string",
+            "description": "Argument vendor_id"
+          },
+          "days": {
+            "type": "integer",
+            "description": "Argument days"
+          }
+        },
+        "required": [
+          "vendor_id"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_incident_outcomes",
+      "description": "Return incidents the vendor was involved in and their outcomes.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "vendor_id": {
+            "type": "string",
+            "description": "Argument vendor_id"
+          },
+          "days": {
+            "type": "integer",
+            "description": "Argument days"
+          }
+        },
+        "required": [
+          "vendor_id"
+        ]
+      }
+    }
+  }
+]
